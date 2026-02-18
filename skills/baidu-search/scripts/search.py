@@ -4,16 +4,16 @@ import requests
 import os
 
 
-# 内置的股票网站列表
+# 8个必备股票网站列表（根据搜索验证）
 STOCK_SITES = [
-    "caifinance.com",           # 财联社
-    "kaipanla.cn",             # 开盘啦
-    "taoguba.com",              # 淘股吧
-    "xueqiu.com",               # 雪球网
-    "jiuyangongshe.com",         # 韭研公社
-    "luobotou.com",              # 萝卜投研
-    "juchao.com",               # 巨潮资讯
-    "xuangutong.com"            # 选股通
+    {"id": 1, "name": "财联社", "domain": "caifinance.com", "type": "官方新闻", "feature": "24小时实时新闻推送、公司公告、政策解读"},
+    {"id": 2, "name": "开盘啦", "domain": "kaipanla.com", "type": "市场情绪", "feature": "板块热度、个股异动、隔夜挂单"},
+    {"id": 3, "name": "淘股吧", "domain": "taoguba.com.cn", "type": "股民社区", "feature": "股票讨论、实战经验、游资大佬"},
+    {"id": 4, "name": "雪球网", "domain": "xueqiu.com", "type": "高端社区", "feature": "游资大佬专栏、深度研报、实盘分享"},
+    {"id": 5, "name": "韭研公社", "domain": "jiuyangongshe.com", "type": "逻辑派", "feature": "题材挖掘、炒作路径、事件日历"},
+    {"id": 6, "name": "萝卜投研", "domain": "luobotou.com", "type": "研报数据", "feature": "券商研报、数据推演、逻辑支撑"},
+    {"id": 7, "name": "巨潮资讯", "domain": "jucho.com", "type": "官方信息", "feature": "公告、政策、内幕消息"},
+    {"id": 8, "name": "选股通", "domain": "xuangutong.com", "type": "热点题材", "feature": "热点板块、涨停家数、深度解析"}
 ]
 
 
@@ -26,7 +26,6 @@ def baidu_search(api_key, requestBody: dict):
         "Content-Type": "application/json"
     }
 
-    # 使用POST方法发送JSON数据
     response = requests.post(url, json=requestBody, headers=headers)
     response.raise_for_status()
     results = response.json()
@@ -44,15 +43,10 @@ def baidu_search(api_key, requestBody: dict):
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Usage: python baidu_search.py <query>")
-        print("\n内置股票网站列表：")
-        print("1. 财联社 - caifinance.com")
-        print("2. 开盘啦 - kaiplanla.cn")
-        print("3. 淘股吧 - taoguba.com")
-        print("4. 雪球网 - xueqiu.com")
-        print("5. 韭研公社 - jiuyangongshe.com")
-        print("6. 萝卜投研 - luobotou.com")
-        print("7. 巨潮资讯 - juchao.com")
-        print("8. 选股通 - xuangutong.com")
+        print("\n内置8个必备股票网站：")
+        for site in STOCK_SITES:
+            print(f"{site['id']}. {site['name']} - {site['domain']} ({site['type']})")
+            print(f"   特色：{site['feature']}")
         print("\n参数说明：")
         print("- search_sites: 在特定股票网站中搜索，格式如 '1,2,3' 或 'all'")
         print("- 示例：python baidu_search.py '{\"query\":\"贵州茅台\",\"search_sites\":\"all\"}'")
@@ -66,7 +60,6 @@ if __name__ == "__main__":
     except json.JSONDecodeError as e:
         print(f"JSON parse error: {e}")
 
-    # We will pass these via env vars for security
     api_key = os.getenv("BAIDU_API_KEY")
 
     if not api_key:
@@ -76,18 +69,17 @@ if __name__ == "__main__":
     # 检查是否要搜索股票网站
     search_sites = parse_data.get("search_sites") if "search_sites" in parse_data else None
 
-    # 如果指定了股票网站搜索
     site_list = []
     if search_sites:
         if search_sites == "all":
-            site_list = STOCK_SITES
+            site_list = [site['domain'] for site in STOCK_SITES]
         else:
             # 解析网站编号，如 "1,2,3"
             try:
                 site_numbers = [int(x.strip()) for x in search_sites.split(",")]
                 for num in site_numbers:
                     if 1 <= num <= len(STOCK_SITES):
-                        site_list.append(STOCK_SITES[num-1])
+                        site_list.append(STOCK_SITES[num-1]['domain'])
             except ValueError as e:
                 print(f"search_sites参数错误：{e}，格式应为 '1,2,3' 或 'all'")
                 sys.exit(1)
