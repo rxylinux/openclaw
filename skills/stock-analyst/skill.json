@@ -1,6 +1,6 @@
 {
-  "name": "股票深度分析",
-  "description": "作为顶级投行高级股票研究分析师，生成完整的股票分析报告",
+  "name": "完整股票拆解分析",
+  "description": "作为顶级投行高级股票研究分析师，对股票进行深度拆解分析，生成完整的分析报告",
   "version": "1.0.0",
   "author": "AI Researcher",
   "category": "investment-research",
