@@ -39,10 +39,25 @@ description: A股股票分析技能。使用百度搜索获取股票信息、财
 
 **工具**: 百度搜索
 ```bash
-python3 /root/.openclaw/workspace/skills/baidu-search/scripts/search.py '{
+python3 skills/baidu-search/scripts/search.py '{
   "query": "<股票代码/名称> 股票信息 主营业务",
   "search_recency_filter": "month",
-  "resource_type_filter": [{"type":"web","top_k":8}]
+  "resource_type_filter": [{"type":"web","top_k":20}],
+  "search_sites": "all"
+}'
+```
+
+**参数说明**:
+- `search_sites: "all"` - 在8个专业股票网站中搜索（财联社、雪球、萝卜投研、巨潮资讯等）
+- `top_k: 20` - 返回更多结果以便交叉验证
+- 其他可用搜索站点：`"1,2,3"` 指定特定站点，或使用 `search_filter` 精确控制
+
+**权威信息源搜索**（推荐用于基本面数据）:
+```bash
+python3 skills/baidu-search/scripts/search.py '{
+  "query": "<股票代码> 基本面 财务数据",
+  "search_recency_filter": "month",
+  "search_filter": {"match": {"site": ["cninfo.com.cn", "luobotou.com", "caifinance.com"]}}
 }'
 ```
 
@@ -50,21 +65,55 @@ python3 /root/.openclaw/workspace/skills/baidu-search/scripts/search.py '{
 
 查询营收、净利润、市盈率、ROE等关键财务指标，分析业绩趋势。
 
-**搜索关键词**: `<股票代码> 财报 业绩预告 季报年报`
-**搜索关键词**: `<股票代码> 市盈率 估值 机构观点`
+```bash
+python3 skills/baidu-search/scripts/search.py '{
+  "query": "<股票代码> 财报 业绩预告 季报年报",
+  "search_recency_filter": "semiyear",
+  "search_sites": "all"
+}'
+```
+
+**估值与机构观点**:
+```bash
+python3 skills/baidu-search/scripts/search.py '{
+  "query": "<股票代码> 市盈率 估值 机构观点",
+  "search_recency_filter": "month",
+  "search_filter": {"match": {"site": ["luobotou.com", "xueqiu.com"]}}
+}'
+```
 
 ### 3. 新闻追踪
 
 搜索最新新闻、重大事件、机构调研、政策影响等。
 
-**搜索关键词**: `<股票代码> 最新新闻 动态`
-**搜索关键词**: `<股票代码> 机构调研 券商评级`
+```bash
+python3 skills/baidu-search/scripts/search.py '{
+  "query": "<股票代码> 最新新闻 动态",
+  "search_recency_filter": "week",
+  "search_sites": "all"
+}'
+```
+
+**机构调研与评级**:
+```bash
+python3 skills/baidu-search/scripts/search.py '{
+  "query": "<股票代码> 机构调研 券商评级",
+  "search_recency_filter": "month",
+  "search_filter": {"match": {"site": ["caifinance.com", "xueqiu.com"]}}
+}'
+```
 
 ### 4. 行业对比分析
 
 同一行业多家公司对比，分析产业链位置、竞争优势、市场格局。
 
-**搜索关键词**: `<行业> 龙头 对比 市场份额`
+```bash
+python3 skills/baidu-search/scripts/search.py '{
+  "query": "<行业> 龙头 对比 市场份额",
+  "search_recency_filter": "month",
+  "resource_type_filter": [{"type":"web","top_k":15}]
+}'
+```
 
 ### 5. 商业理解
 
@@ -441,11 +490,23 @@ python3 /root/.openclaw/workspace/skills/baidu-search/scripts/search.py '{
 ```
 用户: "分析一下宁德时代"
 ↓
-1. 搜索基本信息: "宁德时代 300750 主营业务 客户"
+1. 搜索基本信息
+   python3 skills/baidu-search/scripts/search.py '{
+     "query": "宁德时代 300750 主营业务 客户",
+     "search_sites": "all"
+   }'
 ↓
-2. 搜索财务: "宁德时代 财报 业绩 盈利"
+2. 搜索财务数据
+   python3 skills/baidu-search/scripts/search.py '{
+     "query": "宁德时代 财报 业绩 ROE",
+     "search_sites": "all"
+   }'
 ↓
-3. 搜索新闻: "宁德时代 最新新闻 动态"
+3. 搜索最新新闻
+   python3 skills/baidu-search/scripts/search.py '{
+     "query": "宁德时代 最新新闻 动态",
+     "search_recency_filter": "week"
+   }'
 ↓
 4. 整合分析:
    - 提取关键数据
@@ -466,3 +527,47 @@ python3 /root/.openclaw/workspace/skills/baidu-search/scripts/search.py '{
 2. **信息交叉验证**: 多个来源交叉确认关键数据
 3. **客观中立**: 避免强烈买入/卖出建议，提供分析框架和风险提示
 4. **合规要求**: 不构成投资建议，仅作信息整理和分析
+
+## 专业股票网站列表
+
+内置 15 个专业股票网站，通过 `search_sites: "all"` 自动搜索：
+
+### 核心资讯平台
+| 编号 | 名称 | 域名 | 类型 | 特色 |
+|------|------|------|------|------|
+| 1 | 财联社 | caifinance.com | 官方新闻 | 24小时实时新闻、公告、政策 |
+| 7 | 巨潮资讯 | cninfo.com.cn | 官方信息 | 上市公司公告、财报、招股说明书 |
+| 14 | 东方财富 | eastmoney.com | 综合行情 | 研报中心、实时行情、资金流向 |
+
+### 投资者社区
+| 编号 | 名称 | 域名 | 类型 | 特色 |
+|------|------|------|------|------|
+| 3 | 淘股吧 | taoguba.com.cn | 股民社区 | 股票讨论、实战经验 |
+| 4 | 雪球网 | xueqiu.com | 高端社区 | 深度研报、实盘分享 |
+| 5 | 韭研公社 | jiuyangongshe.com | 逻辑派 | 题材挖掘、炒作路径 |
+
+### 研报与数据
+| 编号 | 名称 | 域名 | 类型 | 特色 |
+|------|------|------|------|------|
+| 6 | 萝卜投研 | luobotou.com | 研报数据 | 券商研报、数据推演 |
+| 10 | 慧博投研 | hibor.net | 研报汇总 | 海量研报库、行业分析 |
+
+### 财务分析
+| 编号 | 名称 | 域名 | 类型 | 特色 |
+|------|------|------|------|------|
+| 9 | 理杏仁 | lixinger.com | 财务数据 | 专业财务分析、PE/PB估值 |
+| 11 | I问财 | iwencai.com | 智能筛选 | 条件选股、ROE筛选 |
+| 13 | 财报说 | caibaoshuo.com | 财务对比 | 杜邦分析、财务对比 |
+
+### 工具与策略
+| 编号 | 名称 | 域名 | 类型 | 特色 |
+|------|------|------|------|------|
+| 2 | 开盘啦 | kaipanla.com | 市场情绪 | 板块热度、异动、挂单 |
+| 8 | 选股通 | xuangutong.com | 热点题材 | 热点板块、涨停分析 |
+| 12 | 果仁网 | guorn.com | 量化回测 | 量化策略、回测功能 |
+| 15 | 同花顺 | 10jqka.com.cn | 行情数据 | 选股器、公司筛选 |
+
+**使用示例**:
+- `search_sites: "all"` - 搜索全部 15 个网站
+- `search_sites: "1,6,7"` - 指定财联社+萝卜投研+巨潮资讯
+- `search_sites: "9,10,11"` - 专注财务分析（理杏仁+慧博+I问财）

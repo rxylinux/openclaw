@@ -4,7 +4,7 @@ import requests
 import os
 
 
-# 8个必备股票网站列表（根据搜索验证）
+# A股专业财经网站列表（根据2025年最新验证）
 STOCK_SITES = [
     {"id": 1, "name": "财联社", "domain": "caifinance.com", "type": "官方新闻", "feature": "24小时实时新闻推送、公司公告、政策解读"},
     {"id": 2, "name": "开盘啦", "domain": "kaipanla.com", "type": "市场情绪", "feature": "板块热度、个股异动、隔夜挂单"},
@@ -12,8 +12,15 @@ STOCK_SITES = [
     {"id": 4, "name": "雪球网", "domain": "xueqiu.com", "type": "高端社区", "feature": "游资大佬专栏、深度研报、实盘分享"},
     {"id": 5, "name": "韭研公社", "domain": "jiuyangongshe.com", "type": "逻辑派", "feature": "题材挖掘、炒作路径、事件日历"},
     {"id": 6, "name": "萝卜投研", "domain": "luobotou.com", "type": "研报数据", "feature": "券商研报、数据推演、逻辑支撑"},
-    {"id": 7, "name": "巨潮资讯", "domain": "jucho.com", "type": "官方信息", "feature": "公告、政策、内幕消息"},
-    {"id": 8, "name": "选股通", "domain": "xuangutong.com", "type": "热点题材", "feature": "热点板块、涨停家数、深度解析"}
+    {"id": 7, "name": "巨潮资讯", "domain": "cninfo.com.cn", "type": "官方信息", "feature": "上市公司公告、财报、招股说明书"},
+    {"id": 8, "name": "选股通", "domain": "xuangutong.com", "type": "热点题材", "feature": "热点板块、涨停家数、深度解析"},
+    {"id": 9, "name": "理杏仁", "domain": "lixinger.com", "type": "财务数据", "feature": "专业财务分析、PE/PB估值、图表化数据"},
+    {"id": 10, "name": "慧博投研", "domain": "hibor.net", "type": "研报汇总", "feature": "海量研报库、行业分析、个股研究"},
+    {"id": 11, "name": "I问财", "domain": "iwencai.com", "type": "智能筛选", "feature": "条件选股、ROE筛选、营收增长筛选"},
+    {"id": 12, "name": "果仁网", "domain": "guorn.com", "type": "量化回测", "feature": "量化策略、回测功能、指数PE查询"},
+    {"id": 13, "name": "财报说", "domain": "caibaoshuo.com", "type": "财务对比", "feature": "杜邦分析、财务对比、股票筛选器"},
+    {"id": 14, "name": "东方财富", "domain": "eastmoney.com", "type": "综合行情", "feature": "研报中心、实时行情、资金流向"},
+    {"id": 15, "name": "同花顺", "domain": "10jqka.com.cn", "type": "行情数据", "feature": "选股器、公司筛选、iFinD终端"}
 ]
 
 
