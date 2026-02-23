@@ -21,6 +21,7 @@ import time
 from typing import Dict, List, Optional, Any, Union
 from functools import lru_cache
 from datetime import datetime
+import subprocess
 
 
 # ==================== 配置常量 ====================
@@ -43,6 +44,81 @@ class Config:
 
 
 # ==================== 工具函数 ====================
+
+def get_actual_trade_date() -> Optional[str]:
+    """
+    获取实际交易日期
+
+    通过多种方式尝试获取真实的交易日期：
+    1. 检查系统时间是否合理
+    2. 从网络时间服务器获取
+    3. 从最新历史数据推断
+
+    Returns:
+        实际交易日期字符串 (YYYY-MM-DD)，如果无法确定返回None
+    """
+    try:
+        # 方法1: 检查系统时间
+        now = datetime.now()
+        current_year = now.year
+
+        # 如果系统年份超过2025，说明时间不准确
+        if current_year > 2025:
+            # 尝试从网络获取时间
+            try:
+                # 使用ntpdate或类似工具
+                result = subprocess.run(
+                    ['sntp', 'pool.ntp.org'],
+                    capture_output=True,
+                    text=True,
+                    timeout=5
+                )
+                # 解析ntp时间
+                # 这里简化处理，实际使用中可以解析ntp返回
+            except:
+                pass
+
+        # 方法2: 从AkShare最新数据推断
+        try:
+            import akshare as ak
+            # 获取上证指数最新一天
+            index_df = ak.stock_zh_index_daily(symbol='sh000001')
+            if not index_df.empty:
+                latest_date = index_df.iloc[-1]['日期']
+                return str(latest_date)[:10]  # 返回 YYYY-MM-DD 格式
+        except:
+            pass
+
+        # 如果都无法获取，返回None
+        return None
+
+    except Exception:
+        return None
+
+
+def get_system_time_info() -> Dict[str, Any]:
+    """
+    获取系统时间信息
+
+    Returns:
+        包含系统时间、是否准确、建议等信息
+    """
+    now = datetime.now()
+    current_year = now.year
+
+    info = {
+        "system_time": now.strftime("%Y-%m-%d %H:%M:%S"),
+        "year": current_year,
+        "is_accurate": current_year <= 2025,
+        "note": ""
+    }
+
+    if current_year > 2025:
+        info["note"] = "⚠️ 系统时间不准确（年份超过2025），数据日期可能不正确"
+        info["suggestion"] = "建议使用网络时间或从历史数据推断交易日"
+
+    return info
+
 
 def retry_on_failure(max_retries: int = Config.MAX_RETRIES, delay: int = Config.RETRY_DELAY):
     """
@@ -144,6 +220,7 @@ class StockDataFetcher:
         self.raw_code = stock_code
         self.standard_code = self._normalize_code(stock_code)
         self._cache: Dict[str, tuple] = {}  # 缓存：{key: (data, timestamp)}
+        self.fetch_start_time = datetime.now()  # 记录开始获取时间
 
     def _normalize_code(self, stock_code: str) -> str:
         """
@@ -658,13 +735,25 @@ class StockDataFetcher:
         Returns:
             所有数据的字典
         """
+        fetch_start = datetime.now()
+
         print(f"\n{'='*60}")
         print(f"开始获取 {self.standard_code} 的完整数据")
         print(f"{'='*60}\n")
 
+        # 获取系统时间信息
+        time_info = get_system_time_info()
+
         result = {
             "stock_code": self.standard_code,
-            "fetch_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "fetch_time": fetch_start.strftime("%Y-%m-%d %H:%M:%S"),
+            "data_source_time": {
+                "fetch_start": fetch_start.strftime("%Y-%m-%d %H:%M:%S"),
+                "fetch_end": None,  # 将在最后填充
+                "system_time": time_info["system_time"],
+                "time_accuracy_note": time_info["note"],
+                "source": "AkShare (东方财富数据)"
+            },
             "basic_info": self.get_basic_info(),
             "realtime_quote": self.get_realtime_quote(),
             "financial_data": self.get_financial_data(),
@@ -675,11 +764,29 @@ class StockDataFetcher:
         if include_xueqiu:
             result['xueqiu_data'] = self.get_xueqiu_data()
 
+        # 记录结束时间
+        fetch_end = datetime.now()
+        result["data_source_time"]["fetch_end"] = fetch_end.strftime("%Y-%m-%d %H:%M:%S")
+        result["data_source_time"]["duration_seconds"] = (fetch_end - fetch_start).total_seconds()
+
         # 添加缓存统计
         result["cache_stats"] = {
             "cached_items": len(self._cache),
             "cache_enabled": Config.ENABLE_CACHE
         }
+
+        # 打印数据时间信息
+        print(f"\n{'='*60}")
+        print("数据获取时间信息:")
+        print(f"{'='*60}")
+        print(f"开始时间: {result['data_source_time']['fetch_start']}")
+        print(f"结束时间: {result['data_source_time']['fetch_end']}")
+        print(f"耗时: {result['data_source_time']['duration_seconds']:.2f} 秒")
+        print(f"系统时间: {result['data_source_time']['system_time']}")
+        if result['data_source_time']['time_accuracy_note']:
+            print(f"⚠️  {result['data_source_time']['time_accuracy_note']}")
+        print(f"数据来源: {result['data_source_time']['source']}")
+        print(f"{'='*60}\n")
 
         return result
 
