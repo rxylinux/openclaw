@@ -786,6 +786,8 @@ class StockDataFetcher:
         if result['data_source_time']['time_accuracy_note']:
             print(f"⚠️  {result['data_source_time']['time_accuracy_note']}")
         print(f"数据来源: {result['data_source_time']['source']}")
+        print(f"数据类型: 实时行情（延迟15-20秒）")
+        print(f"数据时效: 交易时段实时更新")
         print(f"{'='*60}\n")
 
         return result
