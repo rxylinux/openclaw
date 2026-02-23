@@ -445,6 +445,37 @@ python3 skills/baidu-search/scripts/search.py '{
 3. 读取拆分索引，逐条推送到飞书
 4. 每条消息标注"（第X条/共Y条）"
 
+## 数据获取方式
+
+### 方案1：AkShare 脚本（推荐，无需API密钥）
+
+**使用 `scripts/fetch_stock_data.py` 获取股票数据：**
+
+```bash
+# 获取所有数据
+python3 skills/a-stock-analysis/scripts/fetch_stock_data.py <股票代码>
+
+# 仅获取基本信息
+python3 skills/a-stock-analysis/scripts/fetch_stock_data.py <股票代码> --basic
+
+# 仅获取实时行情
+python3 skills/a-stock-analysis/scripts/fetch_stock_data.py <股票代码> --quote
+
+# 仅获取财务数据
+python3 skills/a-stock-analysis/scripts/fetch_stock_data.py <股票代码> --financial
+
+# 仅获取雪球数据
+python3 skills/a-stock-analysis/scripts/fetch_stock_data.py <股票代码> --xueqiu
+```
+
+**数据源**：
+- AkShare：基本信息、实时行情、财务数据（免费，无需密钥）
+- Web Reader：雪球网社区观点
+
+### 方案2：百度搜索（需要BAIDU_API_KEY）
+
+如果配置了 `BAIDU_API_KEY` 环境变量，可使用百度搜索在15个专业网站中获取数据。
+
 ## 参考资源
 
 ### references/analysis-framework.md
