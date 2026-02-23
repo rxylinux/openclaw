@@ -1,6 +1,6 @@
 ---
 name: a-stock-analysis
-description: A股股票分析技能。使用百度搜索获取股票信息、财务数据、最新新闻，进行基本面分析和技术分析。支持个股查询、行业分析、财务指标解读。当用户询问A股股票、上市公司分析、投资研究时使用此技能。
+description: A股股票分析技能。使用博查API和秘塔搜索获取股票信息、财务数据、最新新闻，进行基本面分析和技术分析。支持个股查询、行业分析、财务指标解读。当用户询问A股股票、上市公司分析、投资研究时使用此技能。
 ---
 
 # A股股票分析
@@ -14,22 +14,27 @@ description: A股股票分析技能。使用百度搜索获取股票信息、财
 - 基本面分析与投资逻辑解读
 - 同行业对比分析
 
+**数据源**：
+- 博查AI开放平台（https://open.bocha.cn）提供智能搜索能力
+- 秘塔AI搜索（https://metaso.cn）提供AI驱动的深度搜索和分析
+
 ## 快速开始
 
 ### 单股分析
 当用户询问"帮我看下拓普集团"时：
 
-1. **获取基本信息**：使用百度搜索 `股票代码 公司 主营业务`
-2. **财务数据**：搜索 `股票代码 财报 业务结构`
-3. **最新新闻**：搜索 `股票代码 新闻 动态`
-4. **综合分析**：整合数据生成分析报告
+1. **获取基本信息**：优先使用博查API，失败时使用秘塔搜索
+2. **财务数据**：优先使用博查API，失败时使用秘塔搜索
+3. **最新新闻**：优先使用博查API，失败时使用秘塔搜索
+4. **综合分析**：整合多个来源的数据生成分析报告
 
 ### 行业分析
 当用户询问"半导体行业如何"时：
 
-1. 搜索行业关键词（如"芯片半导体 最新动态"）
-2. 汇总多家公司信息
-3. 生成行业对比分析
+1. 优先使用博查API搜索行业关键词
+2. 如果博查API返回空数据或失败，使用秘塔搜索
+3. 汇总多家公司信息
+4. 生成行业对比分析
 
 ## 核心能力
 
@@ -37,83 +42,120 @@ description: A股股票分析技能。使用百度搜索获取股票信息、财
 
 获取股票基本信息、主营业务、客户资源、竞争优势等。
 
-**工具**: 百度搜索
+**搜索策略**：
+1. **首选**：博查API搜索（覆盖15个专业股票网站）
+2. **备选**：秘塔搜索（当博查API失败或返回空数据时）
+
+**工具选项**：
+
+#### 方案1：博查API搜索（首选）
 ```bash
-python3 skills/baidu-search/scripts/search.py '{
-  "query": "<股票代码/名称> 股票信息 主营业务",
-  "search_recency_filter": "month",
-  "resource_type_filter": [{"type":"web","top_k":20}],
-  "search_sites": "all"
-}'
+python3 skills/a-stock-analysis/scripts/bocha_search.py <股票代码> <股票名称> --basic
 ```
 
-**参数说明**:
-- `search_sites: "all"` - 在8个专业股票网站中搜索（财联社、雪球、萝卜投研、巨潮资讯等）
-- `top_k: 20` - 返回更多结果以便交叉验证
-- 其他可用搜索站点：`"1,2,3"` 指定特定站点，或使用 `search_filter` 精确控制
+#### 方案2：秘塔搜索（备选）
+- **使用场景**: 博查API失败或返回空数据时
+- **使用**: 通过MCP调用秘塔搜索
+- **搜索示例**: `002472 双环传动 基本信息 主营业务`
+- **优势**: AI整理信息，提供结构化分析结果
 
-**权威信息源搜索**（推荐用于基本面数据）:
+**参数说明**:
+- 自动在多个专业股票网站中搜索（财联社、雪球、东方财富、巨潮资讯等）
+- 默认返回最近一个月的结果，可自定义时间范围
+- 支持多种搜索模式：基本信息、财务数据、最新新闻、行业分析
+
+**使用示例**:
 ```bash
-python3 skills/baidu-search/scripts/search.py '{
-  "query": "<股票代码> 基本面 财务数据",
-  "search_recency_filter": "month",
-  "search_filter": {"match": {"site": ["cninfo.com.cn", "luobotou.com", "caifinance.com"]}}
-}'
+# 搜索基本信息
+python3 skills/a-stock-analysis/scripts/bocha_search.py 002472 双环传动 --basic
+
+# 搜索财务数据
+python3 skills/a-stock-analysis/scripts/bocha_search.py 002472 双环传动 --financial
+
+# 搜索最新新闻
+python3 skills/a-stock-analysis/scripts/bocha_search.py 002472 双环传动 --news
+
+# 综合搜索（所有信息）
+python3 skills/a-stock-analysis/scripts/bocha_search.py 002472 双环传动
 ```
 
 ### 2. 财务数据分析
 
 查询营收、净利润、市盈率、ROE等关键财务指标，分析业绩趋势。
 
+**搜索策略**：
+1. **首选**：博查API搜索（覆盖更多专业财经网站）
+2. **备选**：秘塔搜索（当博查API失败或返回空数据时）
+
+**工具选项**：
+
+#### 方案1：博查API搜索（首选）
 ```bash
-python3 skills/baidu-search/scripts/search.py '{
-  "query": "<股票代码> 财报 业绩预告 季报年报",
-  "search_recency_filter": "semiyear",
-  "search_sites": "all"
-}'
+python3 skills/a-stock-analysis/scripts/bocha_search.py <股票代码> <股票名称> --financial
 ```
+
+#### 方案2：秘塔搜索（备选）
+- **使用场景**: 博查API失败或返回空数据时
+- 使用秘塔搜索 `股票代码 财报 业绩 ROE 市盈率`
+- AI会自动整理和分析财务数据
 
 **估值与机构观点**:
 ```bash
-python3 skills/baidu-search/scripts/search.py '{
-  "query": "<股票代码> 市盈率 估值 机构观点",
-  "search_recency_filter": "month",
-  "search_filter": {"match": {"site": ["luobotou.com", "xueqiu.com"]}}
-}'
+# 首选：使用博查API
+python3 skills/a-stock-analysis/scripts/bocha_search.py <股票代码> <股票名称> --financial
+
+# 备选：使用秘塔搜索
+# 秘塔搜索: <股票代码> 市盈率 估值 机构观点
 ```
 
 ### 3. 新闻追踪
 
 搜索最新新闻、重大事件、机构调研、政策影响等。
 
+**搜索策略**：
+1. **首选**：博查API搜索（覆盖更多新闻源）
+2. **备选**：秘塔搜索（当博查API失败或返回空数据时）
+
+**工具选项**：
+
+#### 方案1：博查API搜索（首选）
 ```bash
-python3 skills/baidu-search/scripts/search.py '{
-  "query": "<股票代码> 最新新闻 动态",
-  "search_recency_filter": "week",
-  "search_sites": "all"
-}'
+python3 skills/a-stock-analysis/scripts/bocha_search.py <股票代码> <股票名称> --news
 ```
+
+#### 方案2：秘塔搜索（备选）
+- **使用场景**: 博查API失败或返回空数据时
+- 秘塔搜索: `股票代码 最新新闻 动态`
+- 提供结构化的新闻摘要和关键事件
 
 **机构调研与评级**:
 ```bash
-python3 skills/baidu-search/scripts/search.py '{
-  "query": "<股票代码> 机构调研 券商评级",
-  "search_recency_filter": "month",
-  "search_filter": {"match": {"site": ["caifinance.com", "xueqiu.com"]}}
-}'
+# 首选：博查API新闻搜索结果自动包含机构调研和评级信息
+python3 skills/a-stock-analysis/scripts/bocha_search.py <股票代码> <股票名称> --news
+
+# 备选：使用秘塔搜索
+# 秘塔搜索: <股票代码> 机构调研 券商评级
 ```
 
 ### 4. 行业对比分析
 
 同一行业多家公司对比，分析产业链位置、竞争优势、市场格局。
 
+**搜索策略**：
+1. **首选**：博查API搜索（覆盖更多行业数据源）
+2. **备选**：秘塔搜索（当博查API失败或返回空数据时）
+
+**工具选项**：
+
+#### 方案1：博查API搜索（首选）
 ```bash
-python3 skills/baidu-search/scripts/search.py '{
-  "query": "<行业> 龙头 对比 市场份额",
-  "search_recency_filter": "month",
-  "resource_type_filter": [{"type":"web","top_k":15}]
-}'
+python3 skills/a-stock-analysis/scripts/bocha_search.py <股票代码> <股票名称> --industry
 ```
+
+#### 方案2：秘塔搜索（备选）
+- **使用场景**: 博查API失败或返回空数据时
+- 秘塔搜索: `行业 龙头 对比 市场份额`
+- AI会提供详细的行业分析和公司对比
 
 ### 5. 商业理解
 
@@ -447,34 +489,60 @@ python3 skills/baidu-search/scripts/search.py '{
 
 ## 数据获取方式
 
-### 方案1：AkShare 脚本（推荐，无需API密钥）
+本技能采用**博查API优先，秘塔搜索备选**的策略：
 
-**使用 `scripts/fetch_stock_data.py` 获取股票数据：**
+### 方案1：博查API搜索（首选，需要BOCHA_API_KEY）
 
+**优势**：
+- 覆盖15个专业股票网站
+- 数据来源专业、权威
+- 搜索速度快，结果丰富
+- 适合：财务数据、专业新闻、机构研报
+
+**使用方式**：
 ```bash
-# 获取所有数据
-python3 skills/a-stock-analysis/scripts/fetch_stock_data.py <股票代码>
+# 综合搜索（获取所有信息）
+python3 skills/a-stock-analysis/scripts/bocha_search.py <股票代码> <股票名称>
 
-# 仅获取基本信息
-python3 skills/a-stock-analysis/scripts/fetch_stock_data.py <股票代码> --basic
+# 仅搜索基本信息
+python3 skills/a-stock-analysis/scripts/bocha_search.py <股票代码> <股票名称> --basic
 
-# 仅获取实时行情
-python3 skills/a-stock-analysis/scripts/fetch_stock_data.py <股票代码> --quote
+# 仅搜索财务数据
+python3 skills/a-stock-analysis/scripts/bocha_search.py <股票代码> <股票名称> --financial
 
-# 仅获取财务数据
-python3 skills/a-stock-analysis/scripts/fetch_stock_data.py <股票代码> --financial
+# 仅搜索最新新闻
+python3 skills/a-stock-analysis/scripts/bocha_search.py <股票代码> <股票名称> --news
 
-# 仅获取雪球数据
-python3 skills/a-stock-analysis/scripts/fetch_stock_data.py <股票代码> --xueqiu
+# 仅搜索行业信息
+python3 skills/a-stock-analysis/scripts/bocha_search.py <股票代码> <股票名称> --industry
 ```
 
-**数据源**：
-- AkShare：基本信息、实时行情、财务数据（免费，无需密钥）
-- Web Reader：雪球网社区观点
+**失败处理**：如果博查API失败或返回空数据，自动切换到秘塔搜索
 
-### 方案2：百度搜索（需要BAIDU_API_KEY）
+**配置要求**：
+- 需要设置 `BOCHA_API_KEY` 环境变量
 
-如果配置了 `BAIDU_API_KEY` 环境变量，可使用百度搜索在15个专业网站中获取数据。
+### 方案2：秘塔AI搜索（备选，MCP已配置）
+
+**使用场景**：
+- 博查API失败或返回空数据时
+- 需要AI深度分析和整理时
+- 需要思维导图、大纲等结构化输出时
+
+**优势**：
+- AI自动整理和分析搜索结果
+- 提供结构化信息和关键洞察
+- 无广告，信息质量高
+- 支持多种输出格式（文本、思维导图、大纲）
+
+**使用方式**：
+- 通过MCP调用秘塔搜索
+- 搜索关键词如：`002472 双环传动 基本信息 主营业务`
+- 适合：深度分析、行业研究、投资逻辑梳理
+
+**配置要求**：
+- 已在项目根目录的 [.claude.json](../../.claude.json) 中配置秘塔 MCP server
+- API密钥已配置
 
 ## 参考资源
 
@@ -521,25 +589,27 @@ python3 skills/a-stock-analysis/scripts/fetch_stock_data.py <股票代码> --xue
 ```
 用户: "分析一下宁德时代"
 ↓
-1. 搜索基本信息
-   python3 skills/baidu-search/scripts/search.py '{
-     "query": "宁德时代 300750 主营业务 客户",
-     "search_sites": "all"
-   }'
+1. 搜索基本信息（首选博查API，失败则用秘塔）
+   python3 skills/a-stock-analysis/scripts/bocha_search.py 300750 宁德时代 --basic
+   ↓ 失败或空数据
+   秘塔搜索: "300750 宁德时代 基本信息 主营业务"
 ↓
-2. 搜索财务数据
-   python3 skills/baidu-search/scripts/search.py '{
-     "query": "宁德时代 财报 业绩 ROE",
-     "search_sites": "all"
-   }'
+2. 搜索财务数据（首选博查API，失败则用秘塔）
+   python3 skills/a-stock-analysis/scripts/bocha_search.py 300750 宁德时代 --financial
+   ↓ 失败或空数据
+   秘塔搜索: "300750 宁德时代 财报 业绩 ROE"
 ↓
-3. 搜索最新新闻
-   python3 skills/baidu-search/scripts/search.py '{
-     "query": "宁德时代 最新新闻 动态",
-     "search_recency_filter": "week"
-   }'
+3. 搜索最新新闻（首选博查API，失败则用秘塔）
+   python3 skills/a-stock-analysis/scripts/bocha_search.py 300750 宁德时代 --news
+   ↓ 失败或空数据
+   秘塔搜索: "300750 宁德时代 最新新闻 动态"
 ↓
-4. 整合分析:
+4. 获取实时行情数据（首选博查API，失败则用秘塔）
+   python3 skills/a-stock-analysis/scripts/bocha_search.py 300750 宁德时代 实时行情
+   ↓ 失败或空数据
+   秘塔搜索: "300750 宁德时代 实时行情 股价"
+↓
+5. 整合分析:
    - 提取关键数据
    - 识别投资逻辑
    - 列出风险点
@@ -549,19 +619,50 @@ python3 skills/a-stock-analysis/scripts/fetch_stock_data.py <股票代码> --xue
    - 列出止损/加仓条件
    - 检查长度并拆分（如超3000字节）
 ↓
-5. 输出分析报告
+6. 输出分析报告
 ```
+
+### 搜索方案选择建议
+
+| 场景 | 首选方案 | 备选方案 | 理由 |
+|------|---------|---------|------|
+| **基本信息查询** | 博查API | 秘塔搜索 | 覆盖更多专业网站 |
+| **财务数据分析** | 博查API | 秘塔搜索 | 数据更专业全面 |
+| **最新新闻追踪** | 博查API | 秘塔搜索 | 新闻源更丰富 |
+| **行业深度研究** | 博查API | 秘塔搜索 | 数据更准确 |
+| **机构观点** | 博查API | 秘塔搜索 | 研报覆盖更全 |
+| **实时行情数据** | 博查API | 秘塔搜索 | 实时股价、涨跌幅等 |
+| **AI分析整理** | 博查API | 秘塔搜索 | 博查API也有AI整理能力 |
 
 ## 注意事项
 
-1. **数据时效性**: 优先获取最近一周的新闻和最新财报
-2. **信息交叉验证**: 多个来源交叉确认关键数据
-3. **客观中立**: 避免强烈买入/卖出建议，提供分析框架和风险提示
-4. **合规要求**: 不构成投资建议，仅作信息整理和分析
+1. **搜索优先级**: 优先使用博查API，失败或返回空数据时使用秘塔搜索
+2. **数据时效性**: 优先获取最近一周的新闻和最新财报
+3. **信息交叉验证**: 多个来源交叉确认关键数据
+4. **客观中立**: 避免强烈买入/卖出建议，提供分析框架和风险提示
+5. **合规要求**: 不构成投资建议，仅作信息整理和分析
+6. **API密钥**:
+   - 使用博查API前需要先配置 `BOCHA_API_KEY` 环境变量
+   - 秘塔搜索已在项目MCP配置中设置，无需额外配置
+7. **失败处理**: 当博查API返回空数据或失败时，自动切换到秘塔搜索作为备选方案
+
+## 搜索方案对比
+
+| 特性 | 博查API（首选） | 秘塔搜索（备选） |
+|------|---------|---------|
+| **优先级** | ⭐⭐⭐ 首选 | ⭐⭐ 备选（博查失败时） |
+| **AI整理** | ✅ 强 | ✅ 强 |
+| **搜索范围** | 15个专业网站 | 全网 |
+| **信息质量** | 高 | 高 |
+| **响应速度** | 快 | 快 |
+| **配置难度** | 中（需要API密钥） | 低（MCP已配置） |
+| **适用场景** | 搜索：基本信息、新闻、行业 | 搜索：深度分析、AI整理 |
+| **成本** | 需要API密钥 | 需要API密钥 |
+| **使用时机** | 搜索功能总是优先使用 | 博查API失败或空数据时 |
 
 ## 专业股票网站列表
 
-内置 15 个专业股票网站，通过 `search_sites: "all"` 自动搜索：
+博查API会自动在以下 15 个专业股票网站中进行搜索：
 
 ### 核心资讯平台
 | 编号 | 名称 | 域名 | 类型 | 特色 |
@@ -597,8 +698,3 @@ python3 skills/a-stock-analysis/scripts/fetch_stock_data.py <股票代码> --xue
 | 8 | 选股通 | xuangutong.com | 热点题材 | 热点板块、涨停分析 |
 | 12 | 果仁网 | guorn.com | 量化回测 | 量化策略、回测功能 |
 | 15 | 同花顺 | 10jqka.com.cn | 行情数据 | 选股器、公司筛选 |
-
-**使用示例**:
-- `search_sites: "all"` - 搜索全部 15 个网站
-- `search_sites: "1,6,7"` - 指定财联社+萝卜投研+巨潮资讯
-- `search_sites: "9,10,11"` - 专注财务分析（理杏仁+慧博+I问财）

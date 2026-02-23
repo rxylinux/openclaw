@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "metaso-search": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelscope/mcp-server-metaso-search"
+      ],
+      "env": {
+        "METASO_API_KEY": "your_metaso_api_key_here"
+      }
+    }
+  }
+}

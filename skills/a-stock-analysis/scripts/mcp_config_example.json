@@ -1,0 +1,23 @@
+{
+  "mcpServers": {
+    "metaso-search": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelscope/mcp-server-metaso-search"
+      ],
+      "env": {
+        "METASO_API_KEY": "your_metaso_api_key_here"
+      }
+    },
+    "bocha-search": {
+      "command": "python",
+      "args": [
+        "/Volumes/solid hard disk/github/rxylinux/openclaw/skills/a-stock-analysis/scripts/bocha_mcp_server.py"
+      ],
+      "env": {
+        "BOCHA_API_KEY": "sk-b6fb1f3d3a1949fb92583bc8ad6715df"
+      }
+    }
+  }
+}
