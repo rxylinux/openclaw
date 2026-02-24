@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "skills": {
+    "agent-browser": {
+      "version": "0.2.0",
+      "installedAt": 1770347327893
+    },
+    "baidu-search": {
+      "version": "1.0.6",
+      "installedAt": 1770876595668
+    }
+  }
+}
