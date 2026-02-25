@@ -7,7 +7,7 @@
 | n1n | 硅基流动 | https://n1n.com | ✅ 正常 |
 | dmaxapi | D-MAX | https://dmaxapi.com | ❌ 连接失败 |
 | AIHubmix | AI Hub Mix | https://aihubmix.com | ✅ 正常 |
-| zenmux | zenmux | https://zenmux.com | ❌ 超时 |
+| zenmux | zenmux | https://zenmux.ai | ❌ 超时 |
 | OhMyGPT | OhMyGPT | https://ohmygpt.com | ❌ 连接失败 |
 | aigc2d | 爱个车 | https://aigc2d.com | ✅ 正常 |
 
