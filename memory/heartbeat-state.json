@@ -1,10 +1,10 @@
 {
-  "last_push_time": "2026-02-25T08:32:55Z",
-  "last_check_time": "2026-02-25T08:32:55Z",
+  "last_push_time": "2026-02-25T18:35:00Z",
+  "last_check_time": "2026-02-25T18:35:00Z",
   "last_review_time": "2026-02-21T20:00:00Z",
   "last_analysis_time": "2026-02-28T20:00:00Z",
   "last_evaluation_time": "2026-03-31T20:00:00Z",
-  "news_sent_count": 6,
+  "news_sent_count": 7,
   "source": "latest-news-index.json",
   "status": "completed"
 }
