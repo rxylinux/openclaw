@@ -1,0 +1,77 @@
+{
+  "update_time": "2026-02-26 12:40:00",
+  "stocks": {
+    "双环传动": {
+      "code": "002472.SZ",
+      "last_price": null,
+      "last_check": null
+    },
+    "汇川技术": {
+      "code": "300124.SZ",
+      "last_price": null,
+      "last_check": null
+    },
+    "美的集团": {
+      "code": "000333.SZ",
+      "last_price": null,
+      "last_check": null
+    },
+    "格力电器": {
+      "code": "000651.SZ",
+      "last_price": null,
+      "last_check": null
+    },
+    "兆威机电": {
+      "code": "003021.SZ",
+      "last_price": null,
+      "last_check": null
+    },
+    "拓普集团": {
+      "code": "601689.SH",
+      "last_price": null,
+      "last_check": null
+    },
+    "歌尔股份": {
+      "code": "002241.SZ",
+      "last_price": null,
+      "last_check": null
+    },
+    "中芯国际": {
+      "code": "688981.SH",
+      "last_price": null,
+      "last_check": null
+    },
+    "速腾聚创": {
+      "code": "02498.HK",
+      "last_price": null,
+      "last_check": null
+    },
+    "巨子生物": {
+      "code": "02367.HK",
+      "last_price": null,
+      "last_check": null
+    },
+    "地平线": {
+      "code": null,
+      "last_price": null,
+      "last_check": null,
+      "note": "未上市"
+    },
+    "腾讯": {
+      "code": "0700.HK",
+      "last_price": null,
+      "last_check": null
+    },
+    "NNOX": {
+      "code": "NNOX",
+      "last_price": null,
+      "last_check": null
+    },
+    "ABCL": {
+      "code": "ABCL",
+      "last_price": null,
+      "last_check": null
+    }
+  },
+  "alerts": []
+}
