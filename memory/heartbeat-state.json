@@ -6,5 +6,20 @@
   "last_evaluation_time": "2026-03-31T20:00:00Z",
   "news_sent_count": 9,
   "source": "latest-news-index.json",
-  "status": "completed"
+  "status": "completed",
+  "agent_reach_installed": "2026-02-26T21:00:00Z",
+  "agent_reach_version": "v1.1.0",
+  "agent_reach_channels_active": 6,
+  "agent_reach_features": {
+    "github_search": true,
+    "web_read": true,
+    "youtube_subtitle": true,
+    "rss_subscription": true,
+    "exa_search": true,
+    "boss_search": true,
+    "twitter_search": false,
+    "xiaohongshu_search": false,
+    "linkedin_search": false
+    "reddit_search": false
+  }
 }
