@@ -1,0 +1,39 @@
+{
+  "ticker": "ABCL",
+  "company_name": "AbCellera Biologics Inc.",
+  "revenue_q3_cumulative": 30.28,
+  "net_income_q3_cumulative": -137.00,
+  "cash_q3_cumulative": 83.16,
+  "revenue_q1": 4.2350,
+  "net_loss_q1": -45.6210,
+  "eps_q1": -0.15,
+  "quarterly_revenue": {
+    "Q1": 4.2350,
+    "Q2": 5.0500,
+    "Q3": 6.5070,
+    "Q4": 5.0500
+  },
+  "quarterly_net_income": {
+    "Q1": -45.6210,
+    "Q2": -34.2100,
+    "Q3": -50.5000,
+    "Q4": -51.1070
+  },
+  "operating_cashflow": {
+    "Q1": -44.00,
+    "Q2": -44.00,
+    "Q3": -40.00,
+    "Q4": -40.00
+  },
+  "capital_expenditure": {
+    "Q1": -36.00,
+    "Q2": -36.00,
+    "Q3": -35.00,
+    "Q4": -35.00
+  },
+  "cash_reserves": 83.16,
+  "government_commitment": 200.00,
+  "current_price": 3.52,
+  "market_cap": 9.55,
+  "beta": 2.02
+}

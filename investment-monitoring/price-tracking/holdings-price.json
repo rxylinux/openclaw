@@ -1,0 +1,77 @@
+{
+  "update_time": "2026-02-26 13:02:00",
+  "stocks": {
+    "双环传动": {
+      "code": "002472.SZ",
+      "last_price": 42.0,
+      "last_check": "2026-02-26 13:05:10"
+    },
+    "汇川技术": {
+      "code": "300124.SZ",
+      "last_price": 73.84,
+      "last_check": "2026-02-26 13:05:10"
+    },
+    "美的集团": {
+      "code": "000333.SZ",
+      "last_price": 79.57,
+      "last_check": "2026-02-26 13:05:10"
+    },
+    "格力电器": {
+      "code": "000651.SZ",
+      "last_price": 37.68,
+      "last_check": "2026-02-26 13:05:10"
+    },
+    "兆威机电": {
+      "code": "003021.SZ",
+      "last_price": 120.8,
+      "last_check": "2026-02-26 13:05:10"
+    },
+    "拓普集团": {
+      "code": "601689.SH",
+      "last_price": 69.59,
+      "last_check": "2026-02-26 13:05:10"
+    },
+    "歌尔股份": {
+      "code": "002241.SZ",
+      "last_price": 27.12,
+      "last_check": "2026-02-26 13:05:10"
+    },
+    "中芯国际": {
+      "code": "688981.SH",
+      "last_price": 116.03,
+      "last_check": "2026-02-26 13:05:10"
+    },
+    "速腾聚创": {
+      "code": "02498.HK",
+      "last_price": 36.14,
+      "last_check": "2026-02-26 13:05:10"
+    },
+    "巨子生物": {
+      "code": "02367.HK",
+      "last_price": 31.98,
+      "last_check": "2026-02-26 13:05:10"
+    },
+    "地平线": {
+      "code": null,
+      "last_price": null,
+      "last_check": null,
+      "note": "未上市"
+    },
+    "腾讯": {
+      "code": "0700.HK",
+      "last_price": 518.5,
+      "last_check": "2026-02-26 13:05:11"
+    },
+    "NNOX": {
+      "code": "NNOX",
+      "last_price": 2.45,
+      "last_check": "2026-02-26 13:05:11"
+    },
+    "ABCL": {
+      "code": "ABCL",
+      "last_price": 3.19,
+      "last_check": "2026-02-26 13:05:11"
+    }
+  },
+  "alerts": []
+}
