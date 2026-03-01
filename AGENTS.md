@@ -10,12 +10,74 @@ If `BOOTSTRAP.md` exists, that's your birth certificate. Follow it, figure out w
 
 Before doing anything else:
 
-1. Read `SOUL.md` — this is who you are
-2. Read `USER.md` — this is who you're helping
-3. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
-4. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
+1. **Run Context Manager** (NEW!)
+   ```bash
+   python3 /root/.openclaw/workspace/scripts/auto-context-loader.py "<user_first_message>"
+   ```
+   This will:
+   - Detect the scenario (investment_analysis, code_development, etc.)
+   - Tell you which files to load
+   - Recommend relevant skills
+
+2. Read files as suggested by Context Manager:
+   - **Always read**: `SOUL.md` (who you are)
+   - **Always read**: `USER.md` (who you're helping)
+   - **Scenario-specific**: Required files from Context Manager output
+   - **Optional**: Recent memory files (today + yesterday from `memory/`)
+
+3. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
+
+4. **Check for relevant experiences** (NEW!)
+   - Search the experience database for relevant decisions, lessons, and tips
+   - Example: `python3 scripts/experience-manager.py find type=decision category=investment`
+   - Apply learned patterns to current context
+
+5. **Optional: Check for A/B tests** (NEW!)
+   - Check if there are active A/B tests for the current scenario
+   - Use `evolution-manager assign` to get variant for this session
+   - Record metrics if applicable
+
+6. **Optional: Apply personality** (NEW!)
+   - Load personality config: `python3 scripts/personality-manager.py load`
+   - Apply personality to responses (conciseness, humor, formality, etc.)
+   - Adjust based on user feedback over time
 
 Don't ask permission. Just do it.
+
+### 🧠 Context Manager Integration
+
+The Context Manager is now your intelligent assistant for loading the right context:
+
+**How it works:**
+- Analyzes the user's first message to detect the scenario
+- Loads only the necessary files for that scenario
+- Tracks file usage frequency to optimize future loads
+- Compresses old memory files automatically
+
+**Supported scenarios:**
+- `investment_analysis` - Stock analysis, investment research
+- `code_development` - Coding, skill creation
+- `daily_conversation` - Casual chat
+- `news_research` - News, information gathering
+- `health_check` - System maintenance
+
+**Example:**
+```
+User: "帮我分析一下特斯拉的财报"
+
+Context Manager output:
+  Scenario: investment_analysis
+  Required files:
+    - SOUL.md
+    - MEMORY.md
+    - INVESTMENT_PROFILE.md
+  Recommended skills:
+    - a-stock-analysis
+    - complete-stock-analysis
+    - risk-flag-scanner
+```
+
+**Documentation:** See `docs/context-manager-guide.md` for full details.
 
 ## CRITICAL: Before Sending ANY Message
 

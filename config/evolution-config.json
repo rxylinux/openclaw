@@ -1,0 +1,53 @@
+{
+  "ab_testing": {
+    "enabled": true,
+    "default_duration_days": 7,
+    "auto_assign": true,
+    "random_seed": 42
+  },
+  "feedback": {
+    "collect_implicit": true,
+    "collect_performance": true,
+    "retention_days": 30,
+    "anonymize": true
+  },
+  "optimization": {
+    "enabled": true,
+    "auto_optimize": true,
+    "optimization_interval_days": 7,
+    "min_feedbacks": 10,
+    "max_adjustment": 0.2
+  },
+  "monitoring": {
+    "response_time_threshold_ms": 5000,
+    "critical_response_time_threshold_ms": 10000,
+    "error_rate_threshold": 0.05,
+    "token_threshold_per_hour": 100000
+  },
+  "reporting": {
+    "enabled": true,
+    "weekly": true,
+    "daily": false,
+    "report_day": "sunday",
+    "report_time": "21:00"
+  },
+  "parameters": {
+    "context_manager": {
+      "decay_factor": {
+        "min": 0.90,
+        "max": 0.99,
+        "current": 0.95,
+        "step": 0.01
+      },
+      "max_optional_files": {
+        "min": 1,
+        "max": 5,
+        "current": 3,
+        "step": 1
+      }
+    },
+    "experience_manager": {
+      "extraction_accuracy_threshold": 0.80
+    }
+  }
+}

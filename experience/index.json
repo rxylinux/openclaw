@@ -1,0 +1,50 @@
+{
+  "experiences": {
+    "exp-20260301-001": {
+      "type": "decision",
+      "category": "general",
+      "tags": [
+        "决策"
+      ],
+      "importance": "high",
+      "created_at": "2026-03-01T07:47:58.269536",
+      "file_path": "experience/experiences/decisions/exp-20260301-001.md",
+      "source": "memory/2026-03-01.md"
+    },
+    "exp-20260301-002": {
+      "type": "tip",
+      "category": "general",
+      "tags": [],
+      "importance": "high",
+      "created_at": "2026-03-01T07:47:58.269652",
+      "file_path": "experience/experiences/tips/exp-20260301-002.md",
+      "source": "memory/2026-03-01.md"
+    },
+    "exp-20260301-003": {
+      "type": "tip",
+      "category": "development",
+      "tags": [
+        "开发",
+        "测试",
+        "文档"
+      ],
+      "importance": "high",
+      "created_at": "2026-03-01T07:47:58.269729",
+      "file_path": "experience/experiences/tips/exp-20260301-003.md",
+      "source": "memory/2026-03-01.md"
+    }
+  },
+  "cases": {
+    "case-20260301-001": {
+      "type": "success",
+      "category": "development",
+      "project": "Context Manager",
+      "date": "2026-03-01",
+      "outcome": "completed_successfully",
+      "file_path": "experience/cases/success/case-20260301-001.md",
+      "lessons_count": 3
+    }
+  },
+  "last_updated": "2026-03-01T07:48:57.251516",
+  "exp_count": 3
+}

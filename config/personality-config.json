@@ -1,0 +1,23 @@
+{
+  "personality": {
+    "default_agent": "main",
+    "auto_adjust": true,
+    "adjustment_threshold": 5,
+    "max_adjustment_per_day": 2
+  },
+  "environment": {
+    "learn_timezone": true,
+    "learn_channel_preference": true,
+    "learn_content_preference": true
+  },
+  "preferences": {
+    "min_interactions": 10,
+    "feedback_weight": 0.7,
+    "behavior_weight": 0.3
+  },
+  "adaptation": {
+    "enabled": true,
+    "learning_rate": 0.1,
+    "forgetting_rate": 0.01
+  }
+}

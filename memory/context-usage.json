@@ -1,0 +1,102 @@
+{
+  "file_stats": {
+    "SOUL.md": {
+      "use_count": 103,
+      "last_used": "2026-03-01T22:48:37.193866",
+      "frequency_score": 88.58999999999999,
+      "scenarios": [
+        "investment_analysis",
+        "code_development",
+        "daily_conversation",
+        "news_research",
+        "health_check"
+      ]
+    },
+    "USER.md": {
+      "use_count": 50,
+      "last_used": "2026-03-01T06:27:00Z",
+      "frequency_score": 50.0,
+      "scenarios": []
+    },
+    "MEMORY.md": {
+      "use_count": 82,
+      "last_used": "2026-03-01T22:48:37.194380",
+      "frequency_score": 74.14999999999999,
+      "scenarios": [
+        "investment_analysis",
+        "daily_conversation"
+      ]
+    },
+    "HEARTBEAT.md": {
+      "use_count": 20,
+      "last_used": "2026-03-01T06:27:00Z",
+      "frequency_score": 20.0,
+      "scenarios": [
+        "health_check"
+      ]
+    },
+    "memory/heartbeat-state.json": {
+      "use_count": 20,
+      "last_used": "2026-03-01T06:27:00Z",
+      "frequency_score": 20.0,
+      "scenarios": [
+        "health_check"
+      ]
+    },
+    "TOOLS.md": {
+      "use_count": 31,
+      "last_used": "2026-02-28T23:42:40.587454",
+      "frequency_score": 29.5,
+      "scenarios": [
+        "code_development"
+      ]
+    },
+    "AGENTS.md": {
+      "use_count": 31,
+      "last_used": "2026-02-28T23:42:40.588137",
+      "frequency_score": 29.5,
+      "scenarios": [
+        "code_development"
+      ]
+    },
+    "INVESTMENT_PROFILE.md": {
+      "use_count": 1,
+      "last_used": "2026-02-28T23:42:38.939826",
+      "frequency_score": 1.0,
+      "scenarios": [
+        "investment_analysis"
+      ]
+    },
+    "memory/2026-03-01.md": {
+      "use_count": 1,
+      "last_used": "2026-03-01T22:48:37.195119",
+      "frequency_score": 1.0,
+      "scenarios": [
+        "daily_conversation"
+      ]
+    }
+  },
+  "scenario_stats": {
+    "investment_analysis": {
+      "use_count": 48,
+      "last_used": "2026-02-28T23:42:38.939834"
+    },
+    "code_development": {
+      "use_count": 18,
+      "last_used": "2026-02-28T23:42:40.588145"
+    },
+    "daily_conversation": {
+      "use_count": 33,
+      "last_used": "2026-03-01T22:48:37.195128"
+    },
+    "news_research": {
+      "use_count": 10,
+      "last_used": "2026-03-01T06:27:00Z"
+    },
+    "health_check": {
+      "use_count": 20,
+      "last_used": "2026-03-01T06:27:00Z"
+    }
+  },
+  "last_updated": "2026-03-01T22:48:37.195130"
+}

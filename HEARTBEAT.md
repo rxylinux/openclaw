@@ -2,16 +2,21 @@
 
 当收到心跳消息时：
 
-## 任务 1：科技新闻推送
+## 任务 1：科技新闻推送 ⚡ 改为Cron执行
 
-1. 每天早上 8 点和晚上 8 点检查是否到了推送时间
-2. 如果到了时间：
-   a. 运行 `python3 /root/.openclaw/workspace/scripts/tech-news.py` 生成新闻
-   b. 运行 `python3 /root/.openclaw/workspace/scripts/heartbeat-helper.py` 自动拆分消息
-   c. 读取 `/root/.openclaw/workspace/temp/news-split-index.json` 的拆分索引文件
-   d. 根据拆分索引中的文件列表，逐条读取消息内容
-   e. 通过飞书逐条推送所有消息
-3. 保存上次推送时间到 `/root/.openclaw/workspace/memory/heartbeat-state.json`
+**已配置Cron任务，每天8:00和20:00准时推送，不再依赖心跳检查。**
+
+Cron任务详情：
+```cron
+# 科技新闻推送 - 每天8点和20点
+0 8 * * * /root/.openclaw/workspace/scripts/push-tech-news.sh >> /root/.openclaw/logs/cron-news.log 2>&1
+0 20 * * * /root/.openclaw/workspace/scripts/push-tech-news.sh >> /root/.openclaw/logs/cron-news.log 2>&1
+```
+
+**心跳任务：检查推送状态**
+1. 每次心跳检查 `/root/.openclaw/workspace/memory/heartbeat-state.json`
+2. 如果 `last_push_time` 距离当前时间超过24小时，发送预警消息
+3. 如果推送失败（status != completed），发送告警消息
 
 ---
 
@@ -19,15 +24,10 @@
 
 1. 每周日晚上 8 点检查是否到了复盘时间
 2. 如果到了时间：
-   a. 读取 `/root/.openclaw/workspace/investment-thought-journal/` 目录
-   b. 查询 `/root/.openclaw/workspace/investment-thought-journal/交易记录/` 中的最新交易
-   c. 读取 `/root/.openclaw/workspace/investment-thought-journal/洞察总结/季度复盘.md` 的复盘框架
-   d. 生成本周投资复盘报告：
-      - 交易表现总结
-      - 投资逻辑验证
-      - 经验教训提取
-      - 策略效果评估
-   e. 通过飞书推送复盘报告
+   a. 提醒用户：`investment-thought-journal` 目录已被删除
+   b. 询问是否需要重新创建复盘框架
+   c. 如果用户确认，创建新的复盘框架
+   d. 通过飞书推送复盘报告
 3. 保存上次复盘时间到 `/root/.openclaw/workspace/memory/heartbeat-state.json`
 
 ---
@@ -52,14 +52,10 @@
 
 1. 每季度最后一天检查是否到了评估时间
 2. 如果到了时间：
-   a. 读取 `/root/.openclaw/workspace/investment-thought-journal/` 目录
-   b. 生成策略有效性评估报告：
-      - 各策略表现统计
-      - 成功率分析
-      - 风险收益比评估
-      - 适用性分析
-      - 优化建议
-   c. 通过飞书推送评估报告
+   a. 提醒用户：`investment-thought-journal` 目录已被删除
+   b. 询问是否需要重新创建评估框架
+   c. 如果用户确认，创建新的评估框架
+   d. 通过飞书推送评估报告
 3. 保存上次评估时间到 `/root/.openclaw/workspace/memory/heartbeat-state.json`
 
 ---
@@ -70,22 +66,25 @@
 
 ```json
 {
-  "last_push_time": "2026-02-21T08:00:00Z",
-  "last_check_time": "2026-02-21T08:00:00Z",
+  "last_push_time": "2026-02-27T12:00:00Z",
+  "last_check_time": "2026-02-27T12:11:00Z",
   "last_review_time": "2026-02-21T20:00:00Z",
   "last_analysis_time": "2026-02-28T20:00:00Z",
   "last_evaluation_time": "2026-03-31T20:00:00Z",
-  "news_sent_count": 3,
+  "news_sent_count": 12,
   "source": "latest-news-index.json",
-  "status": "completed"
+  "status": "completed",
+  "use_cron": true
 }
 ```
 
+---
 
 ## 优先级
 
 ### 高优先级
-- 科技新闻推送（每天 2 次）
+- ~~科技新闻推送（每天 2 次）~~ ✅ 已改为Cron自动执行
+- 科技新闻状态监控（每次心跳检查推送状态）
 - 投资随想复盘（每周 1 次）
 
 ### 中优先级
@@ -93,3 +92,27 @@
 
 ### 低优先级
 - 策略有效性评估（每季度 1 次）
+
+---
+
+## Cron任务管理
+
+### 查看当前Cron任务
+```bash
+crontab -l
+```
+
+### 编辑Cron任务
+```bash
+crontab -e
+```
+
+### 查看Cron日志
+```bash
+tail -f /root/.openclaw/logs/cron-news.log
+```
+
+### 手动测试推送脚本
+```bash
+/root/.openclaw/workspace/scripts/push-tech-news.sh
+```

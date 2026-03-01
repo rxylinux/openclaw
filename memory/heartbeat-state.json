@@ -1,12 +1,24 @@
 {
-  "last_check_time": "2026-02-27T01:54:00Z",
-  "last_push_time": "2026-02-27T01:54:00Z",
+  "last_push_time": "2026-03-01T22:50:20.564584+00:00",
+  "last_check_time": "2026-03-01T23:03:48.837788+00:00",
   "last_review_time": "2026-02-21T20:00:00Z",
-  "last_analysis_time": "2026-02-28T20:00:00Z",
+  "last_analysis_time": "2026-02-28T00:02:00Z",
   "last_evaluation_time": "2026-03-31T20:00:00Z",
-  "news_sent_count": 11,
+  "news_sent_count": 21,
   "source": "latest-news-index.json",
   "status": "completed",
+  "use_cron": true,
+  "tasks": {
+    "tech_news": {
+      "status": "completed",
+      "last_run": "2026-03-01T22:50:20.564603+00:00",
+      "next_run": "2026-03-01T20:00:00+08:00"
+    },
+    "wechat_articles": {
+      "last_run": "2026-03-01T15:00:35.686390",
+      "status": "completed"
+    }
+  },
   "agent_reach_installed": "2026-02-26T21:00:00Z",
   "agent_reach_version": "v1.1.0",
   "agent_reach_channels_active": 6,

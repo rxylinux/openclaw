@@ -1,0 +1,80 @@
+{
+  "scenarios": {
+    "investment_analysis": {
+      "required_files": [
+        "SOUL.md",
+        "MEMORY.md",
+        "INVESTMENT_PROFILE.md"
+      ],
+      "optional_files": [
+        "memory/investment-notes.md"
+      ],
+      "skills": [
+        "a-stock-analysis",
+        "美股分析/完整股票拆解分析/complete-stock-analysis",
+        "美股分析/风险与红旗扫描器/risk-flag-scanner"
+      ],
+      "description": "股票分析、投资研究场景"
+    },
+    "code_development": {
+      "required_files": [
+        "SOUL.md",
+        "TOOLS.md",
+        "AGENTS.md"
+      ],
+      "optional_files": [],
+      "skills": [
+        "skill-creator"
+      ],
+      "description": "代码开发、技能创建场景"
+    },
+    "daily_conversation": {
+      "required_files": [
+        "SOUL.md",
+        "MEMORY.md"
+      ],
+      "optional_files": [
+        "memory/2026-02-28.md",
+        "memory/2026-03-01.md"
+      ],
+      "skills": [],
+      "description": "日常对话、闲聊场景"
+    },
+    "news_research": {
+      "required_files": [
+        "SOUL.md"
+      ],
+      "optional_files": [
+        "memory/news-history.json"
+      ],
+      "skills": [
+        "baidu-search",
+        "agent-browser"
+      ],
+      "description": "新闻研究、信息收集场景"
+    },
+    "health_check": {
+      "required_files": [
+        "SOUL.md",
+        "HEARTBEAT.md",
+        "memory/heartbeat-state.json"
+      ],
+      "optional_files": [],
+      "skills": [
+        "healthcheck"
+      ],
+      "description": "健康检查、系统维护场景"
+    }
+  },
+  "compression": {
+    "enabled": true,
+    "max_memory_days": 7,
+    "min_memory_size_bytes": 10000,
+    "compression_ratio": 0.5
+  },
+  "frequency_tracking": {
+    "enabled": true,
+    "decay_factor": 0.95,
+    "boost_on_use": 1.0
+  }
+}
