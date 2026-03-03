@@ -1,0 +1,250 @@
+{
+  "A股": {
+    "name": "A股",
+    "full_name": "中国内地股票市场",
+    "exchanges": ["上海证券交易所", "深圳证券交易所"],
+    "currency": "CNY",
+    "timezone": "Asia/Shanghai",
+    "trading_hours": {
+      "pre_market": "09:15-09:25",
+      "morning": "09:30-11:30",
+      "afternoon": "13:00-15:00"
+    },
+    "data_sources": [
+      {
+        "name": "同花顺",
+        "url": "https://www.10jqka.com.cn",
+        "type": "综合",
+        "priority": 1
+      },
+      {
+        "name": "东方财富",
+        "url": "https://www.eastmoney.com",
+        "type": "综合",
+        "priority": 2
+      },
+      {
+        "name": "新浪财经",
+        "url": "https://finance.sina.com.cn",
+        "type": "行情",
+        "priority": 3
+      },
+      {
+        "name": "上交所官网",
+        "url": "http://www.sse.com.cn",
+        "type": "官方",
+        "priority": 10
+      },
+      {
+        "name": "深交所官网",
+        "url": "http://www.szse.cn",
+        "type": "官方",
+        "priority": 10
+      }
+    ],
+    "indices": [
+      {
+        "code": "000001.SH",
+        "name": "上证指数",
+        "type": "主板"
+      },
+      {
+        "code": "399001.SZ",
+        "name": "深证成指",
+        "type": "主板"
+      },
+      {
+        "code": "399006.SZ",
+        "name": "创业板指",
+        "type": "成长"
+      },
+      {
+        "code": "000688.SH",
+        "name": "科创50",
+        "type": "科技"
+      },
+      {
+        "code": "000300.SH",
+        "name": "沪深300",
+        "type": "大盘"
+      },
+      {
+        "code": "000905.SH",
+        "name": "中证500",
+        "type": "中盘"
+      }
+    ],
+    "stock_code_patterns": {
+      "上海": {
+        "600xxx": "主板",
+        "601xxx": "主板",
+        "603xxx": "主板",
+        "688xxx": "科创板"
+      },
+      "深圳": {
+        "000xxx": "主板",
+        "002xxx": "中小板",
+        "300xxx": "创业板"
+      }
+    },
+    "sectors": [
+      "科技", "芯片半导体", "医药生物", "消费", "金融", "地产",
+      "新能源汽车", "光伏", "军工", "新材料", "高端制造"
+    ]
+  },
+  "美股": {
+    "name": "美股",
+    "full_name": "美国股票市场",
+    "exchanges": ["NYSE", "NASDAQ", "AMEX"],
+    "currency": "USD",
+    "timezone": "America/New_York",
+    "trading_hours": {
+      "pre_market": "04:00-09:30",
+      "regular": "09:30-16:00",
+      "after_hours": "16:00-20:00"
+    },
+    "data_sources": [
+      {
+        "name": "Yahoo Finance",
+        "url": "https://finance.yahoo.com",
+        "type": "综合",
+        "priority": 1
+      },
+      {
+        "name": "SEC EDGAR",
+        "url": "https://www.sec.gov/edgar",
+        "type": "官方",
+        "priority": 1
+      },
+      {
+        "name": "Bloomberg",
+        "url": "https://www.bloomberg.com",
+        "type": "付费",
+        "priority": 2
+      },
+      {
+        "name": "Morningstar",
+        "url": "https://www.morningstar.com",
+        "type": "综合",
+        "priority": 3
+      },
+      {
+        "name": "FactSet",
+        "url": "https://www.factset.com",
+        "type": "付费",
+        "priority": 2
+      }
+    ],
+    "indices": [
+      {
+        "code": "^GSPC",
+        "name": "S&P 500",
+        "type": "大盘"
+      },
+      {
+        "code": "^IXIC",
+        "name": "NASDAQ Composite",
+        "type": "科技"
+      },
+      {
+        "code": "^DJI",
+        "name": "Dow Jones Industrial",
+        "type": "蓝筹"
+      },
+      {
+        "code": "^RUT",
+        "name": "Russell 2000",
+        "type": "小盘"
+      },
+      {
+        "code": "^VIX",
+        "name": "CBOE Volatility Index",
+        "type": "恐慌指数"
+      }
+    ],
+    "sectors": [
+      "Technology", "Healthcare", "Financial Services", "Consumer Cyclical",
+      "Communication Services", "Industrials", "Consumer Defensive",
+      "Energy", "Utilities", "Real Estate", "Basic Materials"
+    ],
+    "analyst_sources": [
+      "Visible Alpha",
+      "TipRanks",
+      "Zacks Investment Research",
+      "Morningstar"
+    ]
+  },
+  "港股": {
+    "name": "港股",
+    "full_name": "香港股票市场",
+    "exchanges": ["港交所 HKEX"],
+    "currency": "HKD",
+    "timezone": "Asia/Hong_Kong",
+    "trading_hours": {
+      "morning": "09:30-12:00",
+      "afternoon": "13:00-16:00"
+    },
+    "data_sources": [
+      {
+        "name": "港交所披露易",
+        "url": "https://www.hkexnews.hk",
+        "type": "官方",
+        "priority": 1
+      },
+      {
+        "name": "AAStocks",
+        "url": "https://www.aastocks.com",
+        "type": "综合",
+        "priority": 2
+      },
+      {
+        "name": "Yahoo Finance HK",
+        "url": "https://hk.finance.yahoo.com",
+        "type": "综合",
+        "priority": 3
+      },
+      {
+        "name": "东方财富港股",
+        "url": "https://hk.eastmoney.com",
+        "type": "综合",
+        "priority": 4
+      }
+    ],
+    "indices": [
+      {
+        "code": "^HSI",
+        "name": "恒生指数",
+        "type": "大盘"
+      },
+      {
+        "code": "^HSCE",
+        "name": "恒生国企指数",
+        "type": "国企"
+      },
+      {
+        "code": "^HSTECH",
+        "name": "恒生科技指数",
+        "type": "科技"
+      },
+      {
+        "code": "^HSCCI",
+        "name": "恒生中国指数",
+        "type": "中资"
+      }
+    ],
+    "stock_code_patterns": {
+      "主板": {
+        "0001-0999": "蓝筹",
+        "1000-9999": "普通",
+        "08000-08999": "主板H股"
+      },
+      "创业板": {
+        "300000-399999": "创业板"
+      }
+    },
+    "sectors": [
+      "金融", "地产", "科技", "消费", "医疗", "能源",
+      "公用事业", "电讯", "工业", "原材料"
+    ]
+  }
+}
