@@ -401,6 +401,11 @@ def main():
 
     if not all_news:
         print("没有找到新闻")
+        # 删除旧的索引文件，避免推送旧新闻
+        index_file = workspace / "temp" / "latest-news-index.json"
+        if index_file.exists():
+            index_file.unlink()
+            print("已删除旧索引文件")
         return
 
     print(f"共找到 {len(all_news)} 条新闻")

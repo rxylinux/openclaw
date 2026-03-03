@@ -10,9 +10,16 @@ cd /root/.openclaw/workspace
 python3 /root/.openclaw/workspace/scripts/tech-news.py
 
 # 检查是否成功生成
-if [ -f "/root/.openclaw/workspace/temp/latest-news-index.json" ]; then
+INDEX_FILE="/root/.openclaw/workspace/temp/latest-news-index.json"
+if [ -f "$INDEX_FILE" ]; then
+    # 检查文件时间戳，如果太旧（超过25小时）就不推送
+    FILE_AGE=$(( ($(date +%s) - $(stat -c %Y "$INDEX_FILE")) / 3600 ))
+    if [ $FILE_AGE -gt 25 ]; then
+        echo "索引文件已过期（${FILE_AGE}小时前），跳过推送"
+        exit 0
+    fi
+
     # 读取拆分索引
-    INDEX_FILE="/root/.openclaw/workspace/temp/latest-news-index.json"
     TOTAL_PARTS=$(python3 -c "import json; d=json.load(open('$INDEX_FILE')); print(d['total_parts'])")
 
     # 逐条发送
