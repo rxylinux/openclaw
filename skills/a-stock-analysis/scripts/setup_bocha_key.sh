@@ -43,7 +43,7 @@ fi
 # 添加新配置
 echo "" >> "$PROFILE_FILE"
 echo "# 博查API密钥 - 配置时间: $(date '+%Y-%m-%d %H:%M:%S')" >> "$PROFILE_FILE"
-echo "export BOCHA_API_KEY=sk-b6fb1f3d3a1949fb92583bc8ad6715df" >> "$PROFILE_FILE"
+echo "export BOCHA_API_KEY=YOUR_API_KEY_HERE" >> "$PROFILE_FILE"
 
 echo "✅ 配置已添加到 $PROFILE_FILE"
 echo ""

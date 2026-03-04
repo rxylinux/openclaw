@@ -366,3 +366,25 @@ python3 skills/a-stock-analysis/scripts/bocha_search.py '{
 
 **最后更新**: 2026-02-23
 **维护者**: Claude Sonnet 4.6
+
+## 覆盖的专业股票网站
+
+博查API搜索覆盖以下15个专业股票网站：
+
+| 网站 | 域名 | 特色 |
+|------|------|------|
+| 东方财富 | eastmoney.com | 行情、财务、研报 |
+| 同花顺 | 10jqka.com.cn | 技术分析、行情 |
+| 雪球 | xueqiu.com | 社区讨论、个股分析 |
+| 新浪财经 | finance.sina.com.cn | 新闻、行情 |
+| 巨潮资讯 | cninfo.com.cn | 公告、年报 |
+| 财联社 | cls.cn | 快讯、独家新闻 |
+| 和讯网 | hexun.com | 财经评论 |
+| 金融界 | jrj.com.cn | 行业分析 |
+| 中国证券报 | cs.com.cn | 官方媒体 |
+| 证券时报 | stcn.com | 深度报道 |
+| 澎湃新闻 | thepaper.cn | 调查报道 |
+| 界面新闻 | jiemian.com | 商业新闻 |
+| 每日经济新闻 | nbd.com.cn | 财经资讯 |
+| 第一财经 | yicai.com | 深度分析 |
+| 中证网 | cs.com.cn | 官方数据 |

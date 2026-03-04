@@ -355,3 +355,20 @@ curl -H "Authorization: Bearer $METASO_API_KEY" \
 
 **最后更新**: 2026-02-23
 **维护者**: Claude Sonnet 4.6
+
+## MCP配置示例
+
+### 秘塔搜索配置
+```json
+{
+  "mcpServers": {
+    "metaso-search": {
+      "command": "npx",
+      "args": ["-y", "@modelscope/mcp-server-metaso-search"],
+      "env": {
+        "METASO_API_KEY": "your_metaso_api_key_here"
+      }
+    }
+  }
+}
+```
