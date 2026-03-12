@@ -1,29 +1,30 @@
 {
-  "last_push_time": "2026-03-03T04:00:22.178985+00:00",
-  "last_check_time": "2026-03-03T04:00:22.179000+00:00",
-  "last_review_time": "2026-02-21T20:00:00Z",
-  "last_analysis_time": "2026-02-28T00:02:00Z",
-  "last_evaluation_time": "2026-03-31T20:00:00Z",
-  "news_sent_count": 25,
+  "last_push_time": "2026-03-12T00:00:49.396000+00:00",
+  "last_check_time": "2026-03-12T00:00:49.396026+00:00",
+  "last_review_time": "2026-03-11T14:33:02.772929+00:00",
+  "last_analysis_time": "2026-02-28T00:02:00+00:00",
+  "last_evaluation_time": "2026-03-31T20:00:00+00:00",
+  "news_sent_count": 49,
   "source": "latest-news-index.json",
   "status": "completed",
   "use_cron": true,
   "tasks": {
     "tech_news": {
       "status": "completed",
-      "last_run": "2026-03-01T22:50:20.564603+00:00",
-      "next_run": "2026-03-01T20:00:00+08:00"
+      "last_run": "2026-03-04T12:22:59+00:00",
+      "next_run": "2026-03-05T00:00:00+00:00"
     },
     "wechat_articles": {
       "last_run": "2026-03-01T15:00:35.686390",
       "status": "completed"
     }
   },
-  "agent_reach_installed": "2026-02-26T21:00:00Z",
+  "agent_reach_installed": "2026-02-26T21:00:00+00:00",
   "agent_reach_version": "v1.1.0",
   "agent_reach_channels_active": 6,
   "agent_reach_features": {
     "github_search": true,
+    "web_search": true,
     "web_read": true,
     "youtube_subtitle": true,
     "rss_subscription": true,
@@ -33,5 +34,6 @@
     "xiaohongshu_search": false,
     "linkedin_search": false,
     "reddit_search": false
-  }
+  },
+  "journal_framework_updated": "2026-03-05T21:00:00.000000+00:00"
 }

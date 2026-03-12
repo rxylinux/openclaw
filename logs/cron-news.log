@@ -149,3 +149,599 @@
 
 推送完成，已更新状态文件
 科技新闻推送完成 - Tue Mar  3 12:00:22 PM CST 2026
+搜索失败: 
+搜索失败: 
+搜索失败: 
+搜索失败: 
+搜索失败: 
+搜索失败: 
+搜索失败: 
+搜索失败: 
+搜索失败: 
+搜索失败: 
+搜索失败: 
+搜索失败: 
+搜索失败: 
+搜索: 人工智能 AI 最新新闻
+搜索: 科技新闻 最新动态
+搜索: AI 大模型 科技
+搜索: 人工智能 行业资讯
+搜索: 芯片半导体 最新动态
+搜索: 新能源汽车 科技
+搜索: 人形机器人 产业
+搜索: 液冷服务器 散热
+搜索: 智能制造 工业互联网
+搜索: 量子计算 突破
+搜索: 生物科技 医药
+搜索: 5G 6G 通信技术
+搜索: 云计算 数据中心
+没有找到新闻
+已删除旧索引文件
+新闻生成失败，未找到索引文件
+抓取 36氪 (科技): https://36kr.com/feed
+  ✓ 抓取到 30 条新闻
+抓取 钛媒体 (科技): https://www.tmtpost.com/rss.xml
+  ✓ 抓取到 19 条新闻
+抓取 InfoQ (技术): https://www.infoq.cn/feed
+  ✓ 抓取到 20 条新闻
+抓取 量子位 (AI): https://www.qbitai.com/feed
+  ✓ 抓取到 10 条新闻
+抓取 虎嗅 (科技): https://www.huxiu.com/rss/0.xml
+  ✓ 抓取到 10 条新闻
+抓取 TechCrunch (国际科技): https://techcrunch.com/feed/
+  ✓ 抓取到 20 条新闻
+抓取 少数派 (数码): https://sspai.com/feed
+  ✓ 抓取到 7 条新闻
+共找到 116 条新闻
+去重后: 52 条
+正在为前5条新闻生成AI分析...
+
+消息总长度: 2806 字符 (6237 字节)
+消息超过 3000 字节，正在拆分成多条...
+已拆分为 3 条消息
+  保存: /root/.openclaw/workspace/temp/latest-news-1.md (1209 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-2.md (1275 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-3.md (325 字符)
+
+索引文件已保存: /root/.openclaw/workspace/temp/latest-news-index.json
+
+
+
+推送完成，已更新状态文件
+科技新闻推送完成 - Wed Mar  4 12:00:34 PM CST 2026
+抓取 36氪 (科技): https://36kr.com/feed
+  ✓ 抓取到 30 条新闻
+抓取 钛媒体 (科技): https://www.tmtpost.com/rss.xml
+  ✓ 抓取到 17 条新闻
+抓取 InfoQ (技术): https://www.infoq.cn/feed
+  ✓ 抓取到 20 条新闻
+抓取 量子位 (AI): https://www.qbitai.com/feed
+  ✓ 抓取到 10 条新闻
+抓取 虎嗅 (科技): https://www.huxiu.com/rss/0.xml
+  ✓ 抓取到 6 条新闻
+抓取 TechCrunch (国际科技): https://techcrunch.com/feed/
+  ✓ 抓取到 20 条新闻
+抓取 少数派 (数码): https://sspai.com/feed
+  ✓ 抓取到 9 条新闻
+共找到 112 条新闻
+去重后: 18 条
+正在为前5条新闻生成AI分析...
+
+消息总长度: 2720 字符 (5460 字节)
+消息超过 3000 字节，正在拆分成多条...
+已拆分为 2 条消息
+  保存: /root/.openclaw/workspace/temp/latest-news-1.md (1394 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-2.md (1315 字符)
+
+索引文件已保存: /root/.openclaw/workspace/temp/latest-news-index.json
+
+
+推送完成，已更新状态文件
+科技新闻推送完成 - Thu Mar  5 12:00:33 AM CST 2026
+抓取 36氪 (科技): https://36kr.com/feed
+  ✓ 抓取到 30 条新闻
+抓取 钛媒体 (科技): https://www.tmtpost.com/rss.xml
+  ✓ 抓取到 19 条新闻
+抓取 InfoQ (技术): https://www.infoq.cn/feed
+  ✓ 抓取到 20 条新闻
+抓取 量子位 (AI): https://www.qbitai.com/feed
+  ✓ 抓取到 10 条新闻
+抓取 虎嗅 (科技): https://www.huxiu.com/rss/0.xml
+  ✓ 抓取到 6 条新闻
+抓取 TechCrunch (国际科技): https://techcrunch.com/feed/
+  ✓ 抓取到 20 条新闻
+抓取 少数派 (数码): https://sspai.com/feed
+  ✓ 抓取到 8 条新闻
+共找到 113 条新闻
+去重后: 59 条
+正在为前5条新闻生成AI分析...
+
+消息总长度: 3141 字符 (7069 字节)
+消息超过 3000 字节，正在拆分成多条...
+已拆分为 3 条消息
+  保存: /root/.openclaw/workspace/temp/latest-news-1.md (1285 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-2.md (1261 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-3.md (598 字符)
+
+索引文件已保存: /root/.openclaw/workspace/temp/latest-news-index.json
+
+
+
+推送完成，已更新状态文件
+科技新闻推送完成 - Thu Mar  5 12:00:46 PM CST 2026
+抓取 36氪 (科技): https://36kr.com/feed
+  ✓ 抓取到 30 条新闻
+抓取 钛媒体 (科技): https://www.tmtpost.com/rss.xml
+  ✓ 抓取到 17 条新闻
+抓取 InfoQ (技术): https://www.infoq.cn/feed
+  ✓ 抓取到 20 条新闻
+抓取 量子位 (AI): https://www.qbitai.com/feed
+  ✓ 抓取到 10 条新闻
+抓取 虎嗅 (科技): https://www.huxiu.com/rss/0.xml
+  ✓ 抓取到 3 条新闻
+抓取 TechCrunch (国际科技): https://techcrunch.com/feed/
+  ✓ 抓取到 20 条新闻
+抓取 少数派 (数码): https://sspai.com/feed
+  ✓ 抓取到 9 条新闻
+共找到 109 条新闻
+去重后: 77 条
+正在为前5条新闻生成AI分析...
+
+消息总长度: 3184 字符 (7294 字节)
+消息超过 3000 字节，正在拆分成多条...
+已拆分为 3 条消息
+  保存: /root/.openclaw/workspace/temp/latest-news-1.md (1321 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-2.md (1030 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-3.md (836 字符)
+
+索引文件已保存: /root/.openclaw/workspace/temp/latest-news-index.json
+Successfully sent part 1/3
+Successfully sent part 2/3
+Successfully sent part 3/3
+推送完成，已更新状态文件
+科技新闻推送完成 - Fri Mar  6 12:00:37 AM CST 2026
+抓取 36氪 (科技): https://36kr.com/feed
+  ✓ 抓取到 30 条新闻
+抓取 钛媒体 (科技): https://www.tmtpost.com/rss.xml
+  ✓ 抓取到 19 条新闻
+抓取 InfoQ (技术): https://www.infoq.cn/feed
+  ✓ 抓取到 20 条新闻
+抓取 量子位 (AI): https://www.qbitai.com/feed
+  ✓ 抓取到 10 条新闻
+抓取 虎嗅 (科技): https://www.huxiu.com/rss/0.xml
+  ✓ 抓取到 4 条新闻
+抓取 TechCrunch (国际科技): https://techcrunch.com/feed/
+  ✓ 抓取到 20 条新闻
+抓取 少数派 (数码): https://sspai.com/feed
+  ✓ 抓取到 8 条新闻
+共找到 111 条新闻
+去重后: 74 条
+正在为前5条新闻生成AI分析...
+
+消息总长度: 2573 字符 (5412 字节)
+消息超过 3000 字节，正在拆分成多条...
+已拆分为 2 条消息
+  保存: /root/.openclaw/workspace/temp/latest-news-1.md (1372 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-2.md (1190 字符)
+
+索引文件已保存: /root/.openclaw/workspace/temp/latest-news-index.json
+开始推送，共 2 条消息
+正在发送第 1/2 条...
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+IndexError: list index out of range
+✗ 第 1 条发送失败（返回码: 1）
+正在发送第 2/2 条...
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+IndexError: list index out of range
+✗ 第 2 条发送失败（返回码: 1）
+推送完成：成功 0/2 条
+推送完成，已更新状态文件
+科技新闻推送完成 - Fri Mar  6 12:00:25 PM CST 2026
+抓取 36氪 (科技): https://36kr.com/feed
+  ✓ 抓取到 30 条新闻
+抓取 钛媒体 (科技): https://www.tmtpost.com/rss.xml
+  ✓ 抓取到 19 条新闻
+抓取 InfoQ (技术): https://www.infoq.cn/feed
+  ✓ 抓取到 20 条新闻
+抓取 量子位 (AI): https://www.qbitai.com/feed
+  ✓ 抓取到 10 条新闻
+抓取 虎嗅 (科技): https://www.huxiu.com/rss/0.xml
+  ✓ 抓取到 6 条新闻
+抓取 TechCrunch (国际科技): https://techcrunch.com/feed/
+  ✓ 抓取到 20 条新闻
+抓取 少数派 (数码): https://sspai.com/feed
+  ✓ 抓取到 9 条新闻
+共找到 114 条新闻
+去重后: 74 条
+正在为前5条新闻生成AI分析...
+
+消息总长度: 3131 字符 (6799 字节)
+消息超过 3000 字节，正在拆分成多条...
+已拆分为 3 条消息
+  保存: /root/.openclaw/workspace/temp/latest-news-1.md (1397 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-2.md (1146 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-3.md (591 字符)
+
+索引文件已保存: /root/.openclaw/workspace/temp/latest-news-index.json
+开始推送，共 3 条消息
+正在发送第 1/3 条...
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+IndexError: list index out of range
+✗ 第 1 条发送失败（返回码: 1）
+正在发送第 2/3 条...
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+IndexError: list index out of range
+✗ 第 2 条发送失败（返回码: 1）
+正在发送第 3/3 条...
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+IndexError: list index out of range
+✗ 第 3 条发送失败（返回码: 1）
+推送完成：成功 0/3 条
+推送完成，已更新状态文件
+科技新闻推送完成 - Sat Mar  7 12:00:22 AM CST 2026
+抓取 36氪 (科技): https://36kr.com/feed
+  ✓ 抓取到 30 条新闻
+抓取 钛媒体 (科技): https://www.tmtpost.com/rss.xml
+  ✓ 抓取到 16 条新闻
+抓取 InfoQ (技术): https://www.infoq.cn/feed
+  ✓ 抓取到 20 条新闻
+抓取 量子位 (AI): https://www.qbitai.com/feed
+  ✓ 抓取到 10 条新闻
+抓取 虎嗅 (科技): https://www.huxiu.com/rss/0.xml
+  ✓ 抓取到 6 条新闻
+抓取 TechCrunch (国际科技): https://techcrunch.com/feed/
+  ✓ 抓取到 20 条新闻
+抓取 少数派 (数码): https://sspai.com/feed
+  ✓ 抓取到 7 条新闻
+共找到 109 条新闻
+去重后: 51 条
+正在为前5条新闻生成AI分析...
+
+消息总长度: 3195 字符 (7047 字节)
+消息超过 3000 字节，正在拆分成多条...
+已拆分为 3 条消息
+  保存: /root/.openclaw/workspace/temp/latest-news-1.md (1307 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-2.md (1302 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-3.md (589 字符)
+
+索引文件已保存: /root/.openclaw/workspace/temp/latest-news-index.json
+开始推送，共 3 条消息
+✓ 第 1/3 条发送成功
+✓ 第 2/3 条发送成功
+✓ 第 3/3 条发送成功
+推送完成：成功 3/3 条
+推送状态已更新
+科技新闻推送完成 - Sat Mar  7 12:00:40 PM CST 2026
+抓取 36氪 (科技): https://36kr.com/feed
+  ✓ 抓取到 28 条新闻
+抓取 钛媒体 (科技): https://www.tmtpost.com/rss.xml
+  ✓ 抓取到 18 条新闻
+抓取 InfoQ (技术): https://www.infoq.cn/feed
+  ✓ 抓取到 20 条新闻
+抓取 量子位 (AI): https://www.qbitai.com/feed
+  ✓ 抓取到 10 条新闻
+抓取 虎嗅 (科技): https://www.huxiu.com/rss/0.xml
+  ✓ 抓取到 5 条新闻
+抓取 TechCrunch (国际科技): https://techcrunch.com/feed/
+  ✓ 抓取到 20 条新闻
+抓取 少数派 (数码): https://sspai.com/feed
+  ✓ 抓取到 6 条新闻
+共找到 107 条新闻
+去重后: 51 条
+正在为前5条新闻生成AI分析...
+
+消息总长度: 3026 字符 (6708 字节)
+消息超过 3000 字节，正在拆分成多条...
+已拆分为 3 条消息
+  保存: /root/.openclaw/workspace/temp/latest-news-1.md (1329 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-2.md (1157 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-3.md (543 字符)
+
+索引文件已保存: /root/.openclaw/workspace/temp/latest-news-index.json
+开始推送，共 3 条消息
+✓ 第 1/3 条发送成功
+✓ 第 2/3 条发送成功
+✓ 第 3/3 条发送成功
+推送完成：成功 3/3 条
+推送状态已更新
+科技新闻推送完成 - Sat Mar  7 08:00:38 PM CST 2026
+抓取 36氪 (科技): https://36kr.com/feed
+  ✓ 抓取到 25 条新闻
+抓取 钛媒体 (科技): https://www.tmtpost.com/rss.xml
+  ✓ 抓取到 18 条新闻
+抓取 InfoQ (技术): https://www.infoq.cn/feed
+  ✓ 抓取到 15 条新闻
+抓取 量子位 (AI): https://www.qbitai.com/feed
+  ✓ 抓取到 10 条新闻
+抓取 虎嗅 (科技): https://www.huxiu.com/rss/0.xml
+  ✓ 抓取到 5 条新闻
+抓取 TechCrunch (国际科技): https://techcrunch.com/feed/
+  ✓ 抓取到 20 条新闻
+抓取 少数派 (数码): https://sspai.com/feed
+  ✓ 抓取到 6 条新闻
+共找到 99 条新闻
+去重后: 25 条
+正在为前5条新闻生成AI分析...
+
+消息总长度: 3051 字符 (6608 字节)
+消息超过 3000 字节，正在拆分成多条...
+已拆分为 3 条消息
+  保存: /root/.openclaw/workspace/temp/latest-news-1.md (1367 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-2.md (1364 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-3.md (323 字符)
+
+索引文件已保存: /root/.openclaw/workspace/temp/latest-news-index.json
+开始推送，共 3 条消息
+✓ 第 1/3 条发送成功
+✓ 第 2/3 条发送成功
+✓ 第 3/3 条发送成功
+推送完成：成功 3/3 条
+推送状态已更新
+科技新闻推送完成 - Sun Mar  8 08:00:45 AM CST 2026
+抓取 36氪 (科技): https://36kr.com/feed
+  ✓ 抓取到 30 条新闻
+抓取 钛媒体 (科技): https://www.tmtpost.com/rss.xml
+  ✓ 抓取到 20 条新闻
+抓取 InfoQ (技术): https://www.infoq.cn/feed
+  ✓ 抓取到 13 条新闻
+抓取 量子位 (AI): https://www.qbitai.com/feed
+  ✓ 抓取到 10 条新闻
+抓取 虎嗅 (科技): https://www.huxiu.com/rss/0.xml
+  ✓ 抓取到 2 条新闻
+抓取 TechCrunch (国际科技): https://techcrunch.com/feed/
+  ✓ 抓取到 20 条新闻
+抓取 少数派 (数码): https://sspai.com/feed
+  ✓ 抓取到 2 条新闻
+共找到 97 条新闻
+去重后: 65 条
+正在为前5条新闻生成AI分析...
+
+消息总长度: 3142 字符 (6722 字节)
+消息超过 3000 字节，正在拆分成多条...
+已拆分为 3 条消息
+  保存: /root/.openclaw/workspace/temp/latest-news-1.md (1346 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-2.md (1258 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-3.md (541 字符)
+
+索引文件已保存: /root/.openclaw/workspace/temp/latest-news-index.json
+开始推送，共 3 条消息
+✓ 第 1/3 条发送成功
+✓ 第 2/3 条发送成功
+✓ 第 3/3 条发送成功
+推送完成：成功 3/3 条
+推送状态已更新
+科技新闻推送完成 - Sun Mar  8 08:00:42 PM CST 2026
+抓取 36氪 (科技): https://36kr.com/feed
+  ✓ 抓取到 30 条新闻
+抓取 钛媒体 (科技): https://www.tmtpost.com/rss.xml
+  ✓ 抓取到 20 条新闻
+抓取 InfoQ (技术): https://www.infoq.cn/feed
+  ✓ 抓取到 7 条新闻
+抓取 量子位 (AI): https://www.qbitai.com/feed
+  ✓ 抓取到 8 条新闻
+抓取 虎嗅 (科技): https://www.huxiu.com/rss/0.xml
+  ✓ 抓取到 2 条新闻
+抓取 TechCrunch (国际科技): https://techcrunch.com/feed/
+  ✓ 抓取到 12 条新闻
+抓取 少数派 (数码): https://sspai.com/feed
+  ✓ 抓取到 2 条新闻
+共找到 81 条新闻
+去重后: 39 条
+正在为前5条新闻生成AI分析...
+
+消息总长度: 2645 字符 (5513 字节)
+消息超过 3000 字节，正在拆分成多条...
+已拆分为 2 条消息
+  保存: /root/.openclaw/workspace/temp/latest-news-1.md (1208 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-2.md (1426 字符)
+
+索引文件已保存: /root/.openclaw/workspace/temp/latest-news-index.json
+开始推送，共 2 条消息
+✓ 第 1/2 条发送成功
+✓ 第 2/2 条发送成功
+推送完成：成功 2/2 条
+推送状态已更新
+科技新闻推送完成 - Mon Mar  9 08:00:35 AM CST 2026
+抓取 36氪 (科技): https://36kr.com/feed
+  ✓ 抓取到 30 条新闻
+抓取 钛媒体 (科技): https://www.tmtpost.com/rss.xml
+  ✓ 抓取到 19 条新闻
+抓取 InfoQ (技术): https://www.infoq.cn/feed
+  ✓ 抓取到 17 条新闻
+抓取 量子位 (AI): https://www.qbitai.com/feed
+  ✓ 抓取到 10 条新闻
+抓取 虎嗅 (科技): https://www.huxiu.com/rss/0.xml
+  ✓ 抓取到 3 条新闻
+抓取 TechCrunch (国际科技): https://techcrunch.com/feed/
+  ✓ 抓取到 12 条新闻
+抓取 少数派 (数码): https://sspai.com/feed
+  ✓ 抓取到 6 条新闻
+共找到 97 条新闻
+去重后: 81 条
+正在为前5条新闻生成AI分析...
+
+消息总长度: 3268 字符 (7154 字节)
+消息超过 3000 字节，正在拆分成多条...
+已拆分为 3 条消息
+  保存: /root/.openclaw/workspace/temp/latest-news-1.md (1328 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-2.md (1103 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-3.md (840 字符)
+
+索引文件已保存: /root/.openclaw/workspace/temp/latest-news-index.json
+开始推送，共 3 条消息
+✓ 第 1/3 条发送成功
+✓ 第 2/3 条发送成功
+✓ 第 3/3 条发送成功
+推送完成：成功 3/3 条
+推送状态已更新
+科技新闻推送完成 - Mon Mar  9 08:00:49 PM CST 2026
+抓取 36氪 (科技): https://36kr.com/feed
+  ✓ 抓取到 30 条新闻
+抓取 钛媒体 (科技): https://www.tmtpost.com/rss.xml
+  ✓ 抓取到 19 条新闻
+抓取 InfoQ (技术): https://www.infoq.cn/feed
+  ✓ 抓取到 16 条新闻
+抓取 量子位 (AI): https://www.qbitai.com/feed
+  ✓ 抓取到 10 条新闻
+抓取 虎嗅 (科技): https://www.huxiu.com/rss/0.xml
+  ✓ 抓取到 4 条新闻
+抓取 TechCrunch (国际科技): https://techcrunch.com/feed/
+  ✓ 抓取到 20 条新闻
+抓取 少数派 (数码): https://sspai.com/feed
+  ✓ 抓取到 8 条新闻
+共找到 107 条新闻
+去重后: 62 条
+正在为前5条新闻生成AI分析...
+
+消息总长度: 3114 字符 (6960 字节)
+消息超过 3000 字节，正在拆分成多条...
+已拆分为 3 条消息
+  保存: /root/.openclaw/workspace/temp/latest-news-1.md (1265 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-2.md (1021 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-3.md (831 字符)
+
+索引文件已保存: /root/.openclaw/workspace/temp/latest-news-index.json
+开始推送，共 3 条消息
+✓ 第 1/3 条发送成功
+✓ 第 2/3 条发送成功
+✓ 第 3/3 条发送成功
+推送完成：成功 3/3 条
+推送状态已更新
+科技新闻推送完成 - Tue Mar 10 08:00:36 AM CST 2026
+抓取 36氪 (科技): https://36kr.com/feed
+  ✓ 抓取到 30 条新闻
+抓取 钛媒体 (科技): https://www.tmtpost.com/rss.xml
+  ✓ 抓取到 18 条新闻
+抓取 InfoQ (技术): https://www.infoq.cn/feed
+  ✓ 抓取到 20 条新闻
+抓取 量子位 (AI): https://www.qbitai.com/feed
+  ✓ 抓取到 10 条新闻
+抓取 虎嗅 (科技): https://www.huxiu.com/rss/0.xml
+  ✓ 抓取到 4 条新闻
+抓取 TechCrunch (国际科技): https://techcrunch.com/feed/
+  ✓ 抓取到 20 条新闻
+抓取 少数派 (数码): https://sspai.com/feed
+  ✓ 抓取到 10 条新闻
+共找到 112 条新闻
+去重后: 91 条
+正在为前5条新闻生成AI分析...
+
+消息总长度: 3349 字符 (7473 字节)
+消息超过 3000 字节，正在拆分成多条...
+已拆分为 3 条消息
+  保存: /root/.openclaw/workspace/temp/latest-news-1.md (1323 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-2.md (1156 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-3.md (873 字符)
+
+索引文件已保存: /root/.openclaw/workspace/temp/latest-news-index.json
+开始推送，共 3 条消息
+✓ 第 1/3 条发送成功
+✓ 第 2/3 条发送成功
+✓ 第 3/3 条发送成功
+推送完成：成功 3/3 条
+推送状态已更新
+科技新闻推送完成 - Tue Mar 10 08:00:43 PM CST 2026
+抓取 36氪 (科技): https://36kr.com/feed
+  ✓ 抓取到 30 条新闻
+抓取 钛媒体 (科技): https://www.tmtpost.com/rss.xml
+  ✓ 抓取到 17 条新闻
+抓取 InfoQ (技术): https://www.infoq.cn/feed
+  ✓ 抓取到 20 条新闻
+抓取 量子位 (AI): https://www.qbitai.com/feed
+  ✓ 抓取到 10 条新闻
+抓取 虎嗅 (科技): https://www.huxiu.com/rss/0.xml
+  ✓ 抓取到 4 条新闻
+抓取 TechCrunch (国际科技): https://techcrunch.com/feed/
+  ✓ 抓取到 20 条新闻
+抓取 少数派 (数码): https://sspai.com/feed
+  ✓ 抓取到 10 条新闻
+共找到 111 条新闻
+去重后: 67 条
+正在为前5条新闻生成AI分析...
+
+消息总长度: 3100 字符 (6899 字节)
+消息超过 3000 字节，正在拆分成多条...
+已拆分为 3 条消息
+  保存: /root/.openclaw/workspace/temp/latest-news-1.md (1277 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-2.md (1251 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-3.md (575 字符)
+
+索引文件已保存: /root/.openclaw/workspace/temp/latest-news-index.json
+开始推送，共 3 条消息
+✓ 第 1/3 条发送成功
+✓ 第 2/3 条发送成功
+✓ 第 3/3 条发送成功
+推送完成：成功 3/3 条
+推送状态已更新
+科技新闻推送完成 - Wed Mar 11 08:00:36 AM CST 2026
+抓取 36氪 (科技): https://36kr.com/feed
+  ✓ 抓取到 30 条新闻
+抓取 钛媒体 (科技): https://www.tmtpost.com/rss.xml
+  ✓ 抓取到 19 条新闻
+抓取 InfoQ (技术): https://www.infoq.cn/feed
+  ✓ 抓取到 20 条新闻
+抓取 量子位 (AI): https://www.qbitai.com/feed
+  ✓ 抓取到 10 条新闻
+抓取 虎嗅 (科技): https://www.huxiu.com/rss/0.xml
+  ✓ 抓取到 6 条新闻
+抓取 TechCrunch (国际科技): https://techcrunch.com/feed/
+  ✓ 抓取到 20 条新闻
+抓取 少数派 (数码): https://sspai.com/feed
+  ✓ 抓取到 10 条新闻
+共找到 115 条新闻
+去重后: 79 条
+正在为前5条新闻生成AI分析...
+
+消息总长度: 2973 字符 (6506 字节)
+消息超过 3000 字节，正在拆分成多条...
+已拆分为 3 条消息
+  保存: /root/.openclaw/workspace/temp/latest-news-1.md (1310 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-2.md (1354 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-3.md (312 字符)
+
+索引文件已保存: /root/.openclaw/workspace/temp/latest-news-index.json
+开始推送，共 3 条消息
+✓ 第 1/3 条发送成功
+✓ 第 2/3 条发送成功
+✓ 第 3/3 条发送成功
+推送完成：成功 3/3 条
+推送状态已更新
+科技新闻推送完成 - Wed Mar 11 08:00:35 PM CST 2026
+抓取 36氪 (科技): https://36kr.com/feed
+  ✓ 抓取到 30 条新闻
+抓取 钛媒体 (科技): https://www.tmtpost.com/rss.xml
+  ✓ 抓取到 19 条新闻
+抓取 InfoQ (技术): https://www.infoq.cn/feed
+  ✓ 抓取到 20 条新闻
+抓取 量子位 (AI): https://www.qbitai.com/feed
+  ✓ 抓取到 10 条新闻
+抓取 虎嗅 (科技): https://www.huxiu.com/rss/0.xml
+  ✓ 抓取到 6 条新闻
+抓取 TechCrunch (国际科技): https://techcrunch.com/feed/
+  ✓ 抓取到 20 条新闻
+抓取 少数派 (数码): https://sspai.com/feed
+  ✓ 抓取到 10 条新闻
+共找到 115 条新闻
+去重后: 64 条
+正在为前5条新闻生成AI分析...
+
+消息总长度: 3257 字符 (7362 字节)
+消息超过 3000 字节，正在拆分成多条...
+已拆分为 3 条消息
+  保存: /root/.openclaw/workspace/temp/latest-news-1.md (1322 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-2.md (1122 字符)
+  保存: /root/.openclaw/workspace/temp/latest-news-3.md (816 字符)
+
+索引文件已保存: /root/.openclaw/workspace/temp/latest-news-index.json
+开始推送，共 3 条消息
+✓ 第 1/3 条发送成功
+✓ 第 2/3 条发送成功
+✓ 第 3/3 条发送成功
+推送完成：成功 3/3 条
+推送状态已更新
+科技新闻推送完成 - Thu Mar 12 08:00:49 AM CST 2026

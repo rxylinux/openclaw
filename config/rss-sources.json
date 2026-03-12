@@ -1,0 +1,39 @@
+{
+  "sources": [
+    {
+      "name": "36氪",
+      "url": "https://36kr.com/feed",
+      "category": "科技"
+    },
+    {
+      "name": "钛媒体",
+      "url": "https://www.tmtpost.com/rss.xml",
+      "category": "科技"
+    },
+    {
+      "name": "InfoQ",
+      "url": "https://www.infoq.cn/feed",
+      "category": "技术"
+    },
+    {
+      "name": "量子位",
+      "url": "https://www.qbitai.com/feed",
+      "category": "AI"
+    },
+    {
+      "name": "虎嗅",
+      "url": "https://www.huxiu.com/rss/0.xml",
+      "category": "科技"
+    },
+    {
+      "name": "TechCrunch",
+      "url": "https://techcrunch.com/feed/",
+      "category": "国际科技"
+    },
+    {
+      "name": "少数派",
+      "url": "https://sspai.com/feed",
+      "category": "数码"
+    }
+  ]
+}

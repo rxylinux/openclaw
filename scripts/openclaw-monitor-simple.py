@@ -1,0 +1,309 @@
+#!/usr/bin/env python3
+"""
+OpenClaw Agent 状态监控看板（简化版）
+
+功能：
+1. 模型信息（当前使用的模型、用量统计）
+2. 会话统计（活跃会话数、消息统计）
+3. 会话关键信息（最近活跃、通道分布）
+4. 通道状态（通道类型、消息发送）
+5. 系统资源（CPU、内存、磁盘）
+
+使用：
+    python3 openclaw-monitor-simple.py         # 启动实时看板
+    python3 openclaw-monitor-simple.py --once  # 只显示一次
+"""
+
+import os
+import json
+import sys
+import time
+import subprocess
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Dict, List, Any, Optional
+
+# 添加OpenClaw路径
+OPENCLAW_ROOT = Path("/root/.openclaw")
+WORKSPACE = OPENCLAW_ROOT / "workspace"
+
+# 检查rich库是否安装
+try:
+    from rich.console import Console
+    from rich.layout import Layout
+    from rich.panel import Panel
+    from rich.table import Table
+    from rich.live import Live
+    from rich.text import Text
+    from rich.align import Align
+    from rich.columns import Columns
+    RICH_AVAILABLE = True
+except ImportError:
+    RICH_AVAILABLE = False
+    print("Warning: rich库未安装，将使用简化输出")
+    print("安装: pip install rich")
+
+
+class OpenClawMonitorSimple:
+    """OpenClaw状态监控器（简化版）"""
+
+    def __init__(self):
+        self.console = Console() if RICH_AVAILABLE else None
+        self.sessions_dir = OPENCLAW_ROOT / "agents" / "main" / "sessions"
+        self.memory_dir = WORKSPACE / "memory"
+
+        # 加载配置
+        self.config = self._load_config()
+        self.cache = {}
+        self.cache_ttl = 30
+
+    def _load_config(self) -> Dict[str, Any]:
+        """加载OpenClaw配置"""
+        config_file = OPENCLAW_ROOT / "config.json"
+        if config_file.exists():
+            try:
+                with open(config_file, 'r') as f:
+                    return json.load(f)
+            except Exception as e:
+                pass
+        return {}
+
+    def _parse_timestamp_ms(self, ts_str: str) -> int:
+        """解析时间戳字符串为毫秒"""
+        try:
+            if isinstance(ts_str, (int, float)):
+                return int(ts_str)
+            dt = datetime.fromisoformat(ts_str.replace('Z', '+00:00'))
+            return int(dt.timestamp() * 1000)
+        except:
+            return 0
+
+    def _get_sessions_info(self) -> List[Dict[str, Any]]:
+        """获取会话信息"""
+        sessions = []
+
+        if not self.sessions_dir.exists():
+            return sessions
+
+        for transcript_file in self.sessions_dir.glob("*.jsonl"):
+            try:
+                session_id = transcript_file.stem
+                message_count = 0
+                last_timestamp = 0
+
+                with open(transcript_file, 'r') as f:
+                    for line in f:
+                        try:
+                            msg = json.loads(line)
+                            if msg.get('type') == 'message':
+                                message_count += 1
+                                msg_timestamp = msg.get('timestamp', '')
+                                if msg_timestamp:
+                                    ts_ms = self._parse_timestamp_ms(msg_timestamp)
+                                    if ts_ms > last_timestamp:
+                                        last_timestamp = ts_ms
+                        except:
+                            pass
+
+                if message_count > 0:
+                    sessions.append({
+                        'session_id': session_id,
+                        'message_count': message_count,
+                        'last_timestamp': last_timestamp,
+                    })
+            except:
+                pass
+
+        # 按消息数排序
+        sessions.sort(key=lambda x: x['message_count'], reverse=True)
+        return sessions
+
+    def _get_heartbeat_state(self) -> Dict[str, Any]:
+        """获取心跳状态"""
+        heartbeat_file = self.memory_dir / "heartbeat-state.json"
+        if heartbeat_file.exists():
+            try:
+                with open(heartbeat_file, 'r') as f:
+                    return json.load(f)
+            except:
+                pass
+        return {}
+
+    def _get_system_stats(self) -> Dict[str, Any]:
+        """获取系统资源统计"""
+        stats = {}
+
+        # CPU使用率
+        try:
+            result = subprocess.run(['sh', '-c',
+                "top -bn1 | grep 'Cpu(s)' | awk '{print $2}' | cut -d'%' -f1"],
+                capture_output=True, text=True)
+            stats['cpu_percent'] = float(result.stdout.strip()) if result.stdout.strip() else 0.0
+        except:
+            stats['cpu_percent'] = 0.0
+
+        # 内存使用
+        try:
+            result = subprocess.run(['free', '-m'], capture_output=True, text=True)
+            lines = result.stdout.split('\n')
+            if len(lines) >= 2:
+                parts = lines[1].split()
+                stats['memory_total'] = int(parts[1])
+                stats['memory_used'] = int(parts[2])
+                stats['memory_percent'] = (stats['memory_used'] / stats['memory_total']) * 100
+        except:
+            stats['memory_percent'] = 0.0
+
+        # 磁盘使用
+        try:
+            result = subprocess.run(['df', '-h', OPENCLAW_ROOT], capture_output=True, text=True)
+            lines = result.stdout.split('\n')
+            if len(lines) >= 2:
+                parts = lines[1].split()
+                stats['disk_used'] = parts[4]
+                stats['disk_used_gb'] = parts[2]
+                stats['disk_total_gb'] = parts[3]
+        except:
+            stats['disk_used'] = 'N/A'
+
+        return stats
+
+    def _format_timestamp(self, ts_ms: int) -> str:
+        """格式化时间戳"""
+        if not ts_ms or ts_ms == 0:
+            return 'N/A'
+        try:
+            dt = datetime.fromtimestamp(ts_ms / 1000, tz=timezone.utc)
+            return dt.strftime('%m-%d %H:%M')
+        except:
+            return 'Invalid'
+
+    def build_dashboard(self):
+        """构建看板"""
+        if not RICH_AVAILABLE:
+            return None
+
+        # 获取数据
+        sessions = self._get_sessions_info()
+        heartbeat = self._get_heartbeat_state()
+        system_stats = self._get_system_stats()
+
+        total_sessions = len(sessions)
+        total_messages = sum(s['message_count'] for s in sessions)
+
+        # 创建表格
+        # 表1：系统状态
+        sys_table = Table(show_header=True, box=None, padding=(0, 1))
+        sys_table.add_column("指标", style="cyan", width=12)
+        sys_table.add_column("值", style="green")
+
+        sys_table.add_row("会话数", str(total_sessions))
+        sys_table.add_row("总消息数", f"{total_messages:,}")
+        sys_table.add_row("CPU", f"{system_stats.get('cpu_percent', 0):.1f}%")
+        sys_table.add_row("内存", f"{system_stats.get('memory_percent', 0):.1f}%")
+        sys_table.add_row("磁盘", f"{system_stats.get('disk_used', 'N/A')}")
+
+        # 表2：Top会话
+        top_table = Table(show_header=True, box=None, padding=(0, 1))
+        top_table.add_column("会话ID", style="cyan", width=24)
+        top_table.add_column("消息数", style="green", justify="right", width=10)
+        top_table.add_column("最后活跃", style="dim", width=10)
+
+        for s in sessions[:4]:  # 只显示前4个，节省空间
+            session_id = s['session_id'][:24]
+            top_table.add_row(session_id, str(s['message_count']), self._format_timestamp(s['last_timestamp']))
+
+        # 表3：心跳状态
+        hb_table = Table(show_header=False, box=None, padding=(0, 1))
+        hb_table.add_column("任务", style="cyan", width=16)
+        hb_table.add_column("状态", style="yellow", width=20)
+
+        if heartbeat:
+            hb_table.add_row("Cron状态", "✅" if heartbeat.get('use_cron') else "❌")
+            hb_table.add_row("新闻推送", heartbeat.get('status', 'N/A'))
+            hb_table.add_row("推送次数", str(heartbeat.get('news_sent_count', 0)))
+        else:
+            hb_table.add_row("状态", "无数据")
+
+        # 组合布局
+        layout = Layout()
+
+        # 标题
+        now = datetime.now(timezone.utc)
+        header = Text.assemble(
+            ("🦊 OpenClaw Monitor", "bold cyan"),
+            (" | ", "white"),
+            (f"{now.strftime('%Y-%m-%d %H:%M:%S')} UTC", "dim white"),
+        )
+
+        # 使用三行布局，调整高度
+        layout.split_column(
+            Layout(Panel(Align.center(header)), size=3),
+            Layout(Panel(sys_table, title="📊 系统状态", border_style="cyan"), size=8),
+            Layout(Panel(top_table, title="📋 Top会话", border_style="yellow"), size=11),
+            Layout(Panel(hb_table, title="💓 心跳状态", border_style="red"), size=6),
+            Layout(Panel(Text("按 Ctrl+C 退出 | 刷新间隔: 5s", justify="center"), style="on #1a1a2e"), size=3)
+        )
+
+        return layout
+
+    def run_once(self):
+        """运行一次"""
+        sessions = self._get_sessions_info()
+        heartbeat = self._get_heartbeat_state()
+        system_stats = self._get_system_stats()
+
+        total_sessions = len(sessions)
+        total_messages = sum(s['message_count'] for s in sessions)
+
+        if RICH_AVAILABLE:
+            self.console.print(self.build_dashboard())
+        else:
+            print("=" * 70)
+            print(f"🦊 OpenClaw Agent Monitor - {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')} UTC")
+            print("=" * 70)
+            print(f"\n会话数: {total_sessions}")
+            print(f"总消息数: {total_messages:,}")
+            print(f"CPU: {system_stats.get('cpu_percent', 0):.1f}%")
+            print(f"内存: {system_stats.get('memory_percent', 0):.1f}%")
+            print(f"磁盘: {system_stats.get('disk_used', 'N/A')}")
+            print("\nTop 5 会话:")
+            for s in sessions[:5]:
+                print(f"  {s['session_id'][:24]}: {s['message_count']} msgs")
+
+    def run(self, refresh_interval: int = 5):
+        """运行实时看板"""
+        if not RICH_AVAILABLE:
+            print("Error: rich库未安装")
+            return
+
+        try:
+            with Live(self.build_dashboard(), refresh_per_second=1/refresh_interval) as live:
+                while True:
+                    live.update(self.build_dashboard())
+                    time.sleep(refresh_interval)
+        except KeyboardInterrupt:
+            print("\n\n退出监控")
+        except Exception as e:
+            print(f"Error: {e}")
+
+
+def main():
+    import argparse
+
+    parser = argparse.ArgumentParser(description='OpenClaw Agent状态监控（简化版）')
+    parser.add_argument('--once', action='store_true', help='只显示一次')
+    parser.add_argument('--interval', type=int, default=5, help='刷新间隔（秒）')
+
+    args = parser.parse_args()
+
+    monitor = OpenClawMonitorSimple()
+
+    if args.once:
+        monitor.run_once()
+    else:
+        monitor.run(refresh_interval=args.interval)
+
+
+if __name__ == '__main__':
+    main()
