@@ -1,6 +1,6 @@
 ---
 name: financial-statement-deep-dive
-description: 顶级投行级别的财务报表深度分析服务。对用户指定的股票代码/公司名称的财务报表进行专业6步深度拆解：利润表分析、资产负债表健康状况、现金流真实性检查、风险信号检查、积极信号、竞争对比。核心要求：每个财务指标必须标注数据来源和日期；数据不可获取时明确说明，绝不估算或编造数字；使用清晰的Markdown标题结构和表格；数据超过30天需标记⚠️提示。触发场景：用户请求财务报表深度分析时，如"深度拆解AAPL财务报表"、"分析特斯拉最新财报"、"对NVIDIA财务报表进行风险检查"。
+description: Use when the user asks to analyze a company's financial statements, inspect income statement, balance sheet, cash flow quality, accounting risks, financial ratios, or compare reported fundamentals with competitors.
 ---
 
 # 财务报表深度拆解
@@ -182,7 +182,7 @@ description: 顶级投行级别的财务报表深度分析服务。对用户指�
 
 #### 收益确认风险
 
-| 激ss指标 | 增长率 | 营收增长率 | 差异 | 风险评估 | 来源 | 日期 |
+| 收益确认指标 | 增长率 | 营收增长率 | 差异 | 风险评估 | 来源 | 日期 |
 |------|--------|------------|------|----------|------|------|
 | 应收账款增长率 | | | | [⚠️/✅] | | |
 

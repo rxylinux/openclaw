@@ -1,6 +1,6 @@
 ---
 name: complete-stock-analysis
-description: 顶级投行级别的完整股票研究分析服务。对用户指定的股票代码或公司名称进行专业的5步深度分析：公司概览、关键财务数据、股价表现、华尔街一致预期、机构资金动向。核心要求：每个指标必须标注数据来源和日期；数据不可获取时明确说明，绝不估算或编造数字；使用清晰的Markdown标题结构和表格；数据超过30天需标记⚠️提示。触发场景：用户请求完整股票分析时，如"完整分析AAPL"、"给我特斯拉的深度拆解"、"对NVIDIA进行完整股票拆解分析"。
+description: Use when the user asks for a complete US stock analysis, deep stock breakdown, first-pass equity research, company overview plus financials, price performance, analyst consensus, or institutional ownership for a ticker or public company.
 ---
 
 # 完整股票拆解分析

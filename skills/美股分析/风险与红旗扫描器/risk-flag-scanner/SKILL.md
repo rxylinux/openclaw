@@ -1,6 +1,6 @@
 ---
 name: risk-flag-scanner
-description: 顶级投行级别的风险与红旗扫描服务。对用户指定的股票代码/公司名称进行专业7步风险分析：财务健康风险（债务增速vs营收增速、自由现金流趋势、利润率压缩、现金续航、大额债务到期）、内部人与机构动向（内部人买卖、高管离职、机构持仓变化、做空比例）、业务集中度风险（产品/客户/地域集中度）、竞争与行业威胁（竞争对手、颠覆性技术、市场增长状态）、监管与法律风险（诉讼调查、监管变化、罚款历史）、会计质量检验（GAAP与调整后差距、会计方法变更、审计意见、财报重述）、宏观敏感度（利率敏感度、衰退脆弱度、汇率风险）。核心要求：每个风险点必须有数据、监管文件或可信报道作为证据支持；绝不臆测风险；没有证据时标注"暂无当前风险—持续监控"；每个指标标注数据来源和日期。触发场景：用户请求风险分析时，如"分析AAPL的风险"、"这只股票有什么风险"、"评估TSLA的风险状况"。
+description: Use when the user asks for risks, red flags, downside factors, fraud or accounting quality checks, insider or short-interest signals, concentration risk, legal or regulatory exposure, debt risk, or macro sensitivity for a public company.
 ---
 
 # 风险与红旗扫描器

@@ -1,6 +1,6 @@
 ---
 name: etf-portfolio-analyzer
-description: 顶级财富管理级别的投资组合与ETF分析服务。对用户指定的投资组合（持仓列表及配置比例）或ETF代码进行专业7步分析：资产配置拆解（行业配置、地理暴露、市值分布、风格暴露）、持仓分析（前10大持仓、重叠分析、单一个股风险）、风险指标（Beta、波动率、最大回撤、夏普比率、持仓相关性）、成本分析（加权平均费用率、年度总成本、低成本替代品）、收益分析（综合股息率、预计年度收入、股息增长率）、压力测试（2008金融危机、2020疫情、2022熊市表现及恢复时间）、优化建议（3个具体可执行建议）。核心要求：每个数据点标注来源；绝不编造历史收益率或费用率；缺乏数据时明确说明；使用清晰表格展示；超过一个季度的数据标记⚠️。触发场景：用户请求ETF或投资组合分析时，如"分析VOO和VTI的组合"、"我的持仓是AAPL 20%、MSFT 15%、VOO 50%"、"评估SPY的风险"。
+description: Use when the user asks to analyze ETFs, funds, or a portfolio with holdings and weights, including allocation, exposure, overlap, risk metrics, fees, income, stress tests, or concrete portfolio optimization ideas.
 ---
 
 # ETF 与投资组合分析器

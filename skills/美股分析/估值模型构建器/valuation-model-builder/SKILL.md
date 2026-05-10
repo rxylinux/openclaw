@@ -1,6 +1,6 @@
 ---
 name: valuation-model-builder
-description: 顶级投行级别的估值模型构建服务。对用户指定的股票代码/公司名称构建完整估值分析：现金流折现模型（DCF）含起始自由现金流、1-5年营收增长率假设、FCF利润率、永续增长率、WACC完整计算过程及敏感性分析；可比公司估值法（5家可比公司、P/E/P/S/EV/EBITDA倍数对比）；历史估值对比（当前vs 5年平均）；分析师目标价（最高/最低/中位数）；三种情景分析（乐观/基准/悲观）。核心要求：透明展示每一个假设并说明来源和逻辑；绝不使用凭空假设的增长率或折现率；必须假设时标注[ASSUMPTION]并解释选择依据及支持来源；使用清晰标题结构和标注清楚的表格。触发场景：用户请求估值模型构建时，如"为AAPL构建估值模型"、"特斯拉估值分析"、"计算NVIDIA的合理价值"。
+description: Use when the user asks for stock valuation, fair value, price target, DCF modeling, WACC calculation, comparable company multiples, historical valuation ranges, or bull/base/bear scenarios for a public company.
 ---
 
 # 估值模型构建器

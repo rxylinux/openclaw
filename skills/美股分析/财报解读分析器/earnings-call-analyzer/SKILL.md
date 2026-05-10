@@ -1,6 +1,6 @@
 ---
 name: earnings-call-analyzer
-description: 顶级投行级别的财报电话会议解读分析服务。对用户指定的股票代码/公司名称的最近一次财报进行专业6步分析：核心数据（营收/EPS超预期情况、GAAP与调整后数据差异）、前瞻指引（上调/下调/维持、季度与全年指引）、业务板块拆解（各板块表现、新增重点）、管理层评论（必须引用真实电话会议纪要、CEO/CFO表述、语气评估）、市场与分析师反应（股价变动、评级变动、问答主题）、最终结论（最重要数字、季度质量评估、下季度关注重点）。核心要求：每个数字必须标注数据来源和日期；必须清楚区分已确认的实际披露数据与前瞻性预测；绝不编造任何引用或财务指标；如电话会议纪要未发布需明确标记说明。触发场景：用户请求财报解读分析时，如"分析AAPL最新财报"、"解读特斯拉财报电话会议"、"对NVIDIA财报进行深度解读"。
+description: Use when the user asks to interpret a recent earnings report, earnings call, management guidance, revenue or EPS surprise, conference-call quotes, analyst reaction, or post-earnings stock move for a public company.
 ---
 
 # 财报解读分析器

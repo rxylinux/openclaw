@@ -1,6 +1,6 @@
 ---
 name: macro-market-scanner
-description: 顶级投行级别的宏观与市场情绪扫描服务。对用户指定的行业/股票/投资组合进行专业7步宏观分析：美联储与利率（联邦基金利率、FOMC决议、会议日期、CME FedWatch概率、利率影响传导机制）、通胀情况（CPI总体与核心、PCE、趋势分析）、经济健康度（GDP增速、失业率、非农就业、消费者信心、衰退信号）、市场内部结构（三大指数表现、市场广度、VIX、Put/Call Ratio、行情集中度）、板块轮动（资金流入流出、机构配置方向）、地缘政治与事件日历（90天地缘政治风险、30天关键事件、影响评估）、战略结论（Risk-On/Risk-Off、顺风逆风评估、投资策略建议、关键宏观数据点）。核心要求：每个数据点标注来源和发布日期；区分已确认数据与市场预期/预测；不得将预测当作事实；使用清晰分节标题。触发场景：用户请求宏观分析时，如"分析当前宏观环境"、"科技股的宏观环境如何"、"现在适合买入股票吗"。
+description: Use when the user asks about the current macro environment, market sentiment, Fed policy, inflation, economic data, sector rotation, geopolitical risks, event calendars, or macro impact on a stock, sector, or portfolio.
 ---
 
 # 宏观与市场情绪扫描器
@@ -427,7 +427,7 @@ description: 顶级投行级别的宏观与市场情绪扫描服务。对用户�
 
 ### 资金流向数据
 - **ETF 发行商：** 资金流向数据
-- **晨光 / EPFR：** 机构资金流向
+- **Morningstar / EPFR：** 机构资金流向
 
 **数据截止日期：** [最新数据日期]
 

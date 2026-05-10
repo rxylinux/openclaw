@@ -1,6 +1,6 @@
 ---
 name: comprehensive-due-diligence
-description: 顶级投行级别的完整尽职调查报告服务（终极母提示，整合所有专业分析技能）。对用户指定的公司名称/股票代码生成8部分正式投行研究报告：执行摘要（投资逻辑、评级、目标价、亮点与风险）、业务概览（业务模式、收入拆分、竞争壁垒）、财务深度分析（4季度+TTM指标、资产负债表、现金流、资本配置）、增长分析（TAM、市场份额、增长驱动、管理层指引vs分析师预期）、估值分析（DCF、可比公司、历史估值、Bull/Base/Bear情景）、风险分析（前5大风险、做空与内部人、会计质量）、催化剂时间表（财报、产品、监管、宏观事件）、最终结论（情景目标价、概率加权期望值、评级、电梯演讲）。核心要求：所有财务指标标注来源和日期；仅使用公开披露数据；数据不可得写明"未公开披露"不估算；前瞻性陈述标注[ASSUMPTION]；结构化Markdown输出。触发场景：用户请求完整投资分析时，如"对AAPL进行完整尽职调查"、"给我特斯拉的完整研究报告"、"全面分析NVDA的投资价值"。
+description: Use when the user asks for a complete due diligence report, full equity research report, investment memo, first coverage report, or comprehensive investment-value analysis for a public company or ticker.
 ---
 
 # 完整尽职调查报告（终极母提示）
@@ -522,4 +522,9 @@ description: 顶级投行级别的完整尽职调查报告服务（终极母提�
 - ETF 与投资组合分析器
 - 宏观与市场情绪扫描器
 
-**相关参考文档位于：** [references/](references/) 目录
+详细方法参考：
+
+- DCF 方法：[references/dcf-methodology.md](references/dcf-methodology.md)
+- 估值倍数：[references/valuation-multiples.md](references/valuation-multiples.md)
+- 催化剂分析：[references/catalysts.md](references/catalysts.md)
+- 报告写作指南：[references/report-writing-guide.md](references/report-writing-guide.md)

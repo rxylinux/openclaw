@@ -1,6 +1,6 @@
 ---
 name: dividend-income-analyzer
-description: 顶级投行级别的股息与被动收入分析服务。对用户指定的股票代码/公司名称从股息投资角度进行专业6步分析：当前股息概况（每股年度股息、股息率、发放频率、除息日、派息日）；股息增长记录（1/3/5/10年CAGR、连续增长年数、股息贵族/股息之王判定、历史削减情况）；可持续性检验（派息率、现金流派息率、派息率趋势、债务/EBITDA、利息保障倍数）；同行业对比（股息率、增长率、派息率、FCF覆盖率）；收入预测（DRIP计算5/10/20年后年度收入，逐步展示计算过程）；风险评估（削减情景、距离危险区、管理层承诺）。核心要求：每个指标必须标注数据来源和日期；绝不估算股息率或分红预测；仅使用已披露数据和明确说明的假设。触发场景：用户请求股息分析时，如"分析AAPL股息"、"这只股票适合收益投资吗"、"评估可口可乐的被动收入潜力"。
+description: Use when the user asks whether a stock is suitable for dividend income, passive income, yield investing, dividend safety, dividend growth, payout sustainability, DRIP projections, or dividend peer comparison.
 ---
 
 # 股息与被动收入分析器

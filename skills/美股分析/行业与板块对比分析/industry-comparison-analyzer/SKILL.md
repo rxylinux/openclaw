@@ -1,6 +1,6 @@
 ---
 name: industry-comparison-analyzer
-description: 顶级投行级别的行业与板块竞争对比分析服务。对用户指定的多家公司（2-5家）在特定行业/板块中进行专业4步对比分析：建立对比表格（市值、TTM营收及增长率、毛利率/营业利润率/净利率、P/E/Forward P/E/P/S/EV/EBITDA/PEG、资产负债率/净负债、自由现金流及FCF收益率、行业关键增长指标）、竞争定位（核心竞争壁垒、市场份额排名及变化）、风险对比（最大单一风险、债务风险、竞争风险）、排名与结论（最具价值标的、增长潜力最高、最安全选择、综合赢家）。核心要求：每个指标必须标注数据来源和日期；仅使用最新披露数据；绝不估算或插值缺失数据；若无法获取标注"N/A 未公开披露"；数据早于最近一季度需特别标记。触发场景：用户请求行业对比分析时，如"对比AAPL、MSFT、GOOGL在科技板块的表现"、"比较特斯拉与蔚来、小鹏"、"云计算行业竞争格局分析"。
+description: Use when the user asks to compare two to five public companies within an industry or sector, including peer fundamentals, valuation multiples, growth metrics, competitive moats, market share, risks, or an overall winner.
 ---
 
 # 行业与板块对比分析器
