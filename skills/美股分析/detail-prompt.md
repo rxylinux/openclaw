@@ -16,6 +16,7 @@
 | ETF 与投资组合分析器 | `ETF与投资组合分析器/etf-portfolio-analyzer` |
 | 宏观与市场情绪扫描器 | `宏观与市场情绪扫描器/macro-market-scanner` |
 | 完整尽职调查报告 | `完整尽职调查报告/comprehensive-due-diligence` |
+| 多技能综合分析总控 | `多技能综合分析总控/us-stock-analysis-orchestrator` |
 
 ## 维护说明
 

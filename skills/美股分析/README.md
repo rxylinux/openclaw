@@ -16,6 +16,7 @@
 | ETF 与投资组合分析器 | `ETF与投资组合分析器/etf-portfolio-analyzer` | ETF/组合配置、重叠、风险、费用、收益和压力测试 |
 | 宏观与市场情绪扫描器 | `宏观与市场情绪扫描器/macro-market-scanner` | 利率、通胀、经济数据、市场情绪、板块轮动和事件日历 |
 | 完整尽职调查报告 | `完整尽职调查报告/comprehensive-due-diligence` | 整合多项分析生成完整投资研究报告 |
+| 多技能综合分析总控 | `多技能综合分析总控/us-stock-analysis-orchestrator` | 编排多个分析 skill，对同一家公司输出一份综合投资判断 |
 
 ## 维护规则
 
