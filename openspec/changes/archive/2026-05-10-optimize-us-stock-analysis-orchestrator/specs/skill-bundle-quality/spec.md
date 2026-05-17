@@ -1,26 +1,4 @@
-# skill-bundle-quality Specification
-
-## Purpose
-TBD - created by archiving change refactor-us-stock-analysis-skills. Update Purpose after archive.
-## Requirements
-### Requirement: Skill Source Structure
-The skill bundle SHALL contain one canonical source directory for each shipped skill and SHALL exclude generated examples, backups, duplicate nested skills, empty placeholder directories, and platform metadata files from the maintained source set. The bundle SHALL include a canonical orchestrator skill for multi-skill company analysis.
-
-#### Scenario: Maintained source tree is inspected
-- **WHEN** the skill bundle is scanned
-- **THEN** each shipped skill has exactly one source directory containing `SKILL.md`
-- **AND** no duplicate nested skill directories, `.DS_Store`, `.bak`, ABCL example data, ABCL example reports, or empty placeholder directories remain
-- **AND** `us-stock-analysis-orchestrator` exists as the canonical multi-skill orchestration skill.
-
-### Requirement: Trigger Metadata
-Each `SKILL.md` SHALL keep its existing `name` and use a concise `description` that starts with `Use when`, describes trigger conditions only, and stays below 1024 bytes.
-
-#### Scenario: Frontmatter is validated
-- **WHEN** all `SKILL.md` files are parsed
-- **THEN** each frontmatter has `name` and `description`
-- **AND** the `name` values match the existing skill names
-- **AND** every `description` starts with `Use when`
-- **AND** no `description` exceeds 1024 bytes.
+## MODIFIED Requirements
 
 ### Requirement: Reference And Template Integrity
 The skill bundle SHALL keep all local Markdown references and template links resolvable from the files that mention them, and SHALL store reusable report skeletons as assets rather than embedding long templates in orchestration instructions.
@@ -42,14 +20,7 @@ Each `.skill` package SHALL be regenerated from its canonical source directory a
 - **AND** the orchestrator skill has a matching `.skill` archive
 - **AND** `scripts/validate-skills.py` can validate the maintained skill bundle.
 
-### Requirement: Data Integrity Guardrails
-The skill text SHALL keep explicit guardrails against fabricated market, financial, quote, source, or date data.
-
-#### Scenario: Skills guide investment analysis
-- **WHEN** an agent uses any shipped skill to produce investment analysis
-- **THEN** the skill requires sources and dates for factual data
-- **AND** requires unavailable data to be marked as unavailable rather than estimated
-- **AND** requires assumptions and forward-looking statements to be explicitly labeled.
+## ADDED Requirements
 
 ### Requirement: Orchestrated Multi-Skill Analysis
 The orchestrator skill SHALL define a compact orchestration workflow, module input/output contracts, conditional module selection, and conflict handling rules for producing one integrated company analysis.
@@ -60,4 +31,3 @@ The orchestrator skill SHALL define a compact orchestration workflow, module inp
 - **AND** can load the module input/output contract when coordinating module outputs
 - **AND** can use the report template asset for the final integrated report
 - **AND** resolves conflicting module outputs using documented priority rules rather than emitting disconnected reports.
-
